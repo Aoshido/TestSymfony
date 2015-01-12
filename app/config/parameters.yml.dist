@@ -5,6 +5,7 @@ parameters:
     database_port:     
     database_name:     
     database_user:     
+    database_password:
     database_memory: false
     # You should uncomment this if you want use pdo_sqlite
     database_path: %kernel.root_dir%/PREGUNTAS.DB
