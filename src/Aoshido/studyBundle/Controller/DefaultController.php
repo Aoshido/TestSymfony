@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('AoshidostudyBundle:Default:homepage.html.twig');
     }
+    public function cargar_preguntas()
+    {
+        
+        return $preguntas;
+    }
 }

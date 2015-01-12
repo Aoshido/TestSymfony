@@ -1,0 +1,4 @@
+<preg>Si una función de hash no posee una buna dispersión, se van a producir muchas dispersiones.</preg>
+<vof>V</vof>
+<just></just>
+<fechas>(16/02/2010)</fechas>
