@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('AoshidostudyBundle:Default:index.html.twig', array('name' => $name));
     }
+    
+    public function homepageAction()
+    {
+        return $this->render('AoshidostudyBundle:Default:homepage.html.twig');
+    }
 }

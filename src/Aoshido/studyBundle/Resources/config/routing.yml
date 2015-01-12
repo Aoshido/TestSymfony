@@ -1,3 +1,8 @@
-aoshidostudy_homepage:
+aoshidostudy_hello:
     path:     /hello/{name}
     defaults: { _controller: AoshidostudyBundle:Default:index }
+    
+aoshidostudy_homepage:
+    path:     /
+    defaults: { _controller: AoshidostudyBundle:Default:homepage }
+
