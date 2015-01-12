@@ -5,4 +5,3 @@ aoshidostudy_hello:
 aoshidostudy_homepage:
     path:     /
     defaults: { _controller: AoshidostudyBundle:Default:homepage }
-
