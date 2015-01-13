@@ -1,26 +1,16 @@
 <HEAD>
-<<<<<<< HEAD
-<h1 style="font-family:arial">Comienzo de la Pagina</h1>
-=======
-<h1>Comienzo de la Pagina</h1>
->>>>>>> cb00e339cfba027dfc4d7987b3078719d65f3fb7
+    <h1 style="font-family:arial">Comienzo de la Pagina</h1>
 </HEAD>
 <body>
     <table border="1">
         <tr>
             <th>Pregunta</th>
-<<<<<<< HEAD
             <th>Contenido</th>
-=======
->>>>>>> cb00e339cfba027dfc4d7987b3078719d65f3fb7
             <th>V o F </th>
         </tr>
         {%for pregunta in preguntas %}
             <tr>
-<<<<<<< HEAD
                 <td>{{ pregunta.id }}</td>
-=======
->>>>>>> cb00e339cfba027dfc4d7987b3078719d65f3fb7
                 <td>{{ pregunta.contenido }}</td>
                 <td>
                     {% if (pregunta.vof == 1) %} 
@@ -33,12 +23,7 @@
         {% endfor %}    
     </table>
 
-<<<<<<< HEAD
     <h2 style="font-family:arial">Aca el form para agregar preguntas</h2>
-=======
-    <h2>Aca el form para agregar preguntas</h2>
->>>>>>> cb00e339cfba027dfc4d7987b3078719d65f3fb7
-
     <table border="1">
         {{ form_start(form) }}
         {{ form_errors(form) }}
