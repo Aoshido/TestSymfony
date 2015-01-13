@@ -1,0 +1,34 @@
+<HEAD>
+<h1>La Pregunta es....</h1>
+</HEAD>
+<body>
+    <table border="1">
+        <tr>
+            <th>Pregunta</th>
+            <th>Contenido</th>
+        </tr>
+            <tr>
+                <td>{{ pregunta.id }}</td>
+                <td>{{ pregunta.contenido }}</td>
+            </tr>
+    </table>
+
+    <h2>Tu Respuesta?</h2>
+
+    <table border="1">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <tr>
+            <td>{{ form_label(form.vof) }}</td>
+            <td>{{ form_widget(form.vof) }}</td>
+        </tr>
+        <tr>
+            <td align="center"colspan="2">{{ form_widget(form.save) }}</td>
+        </tr>
+
+        {{ form_end(form) }}
+    </table>
+    <a href="{{ path('aoshidostudy_index') }}">
+        Inicio
+    </a>
+</body>
