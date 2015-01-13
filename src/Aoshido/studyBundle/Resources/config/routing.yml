@@ -1,7 +1,11 @@
-aoshidostudy_hello:
-    path:     /hello/{name}
+aoshidostudy_index:
+    path:     /
     defaults: { _controller: AoshidostudyBundle:Default:index }
     
-aoshidostudy_homepage:
-    path:     /
-    defaults: { _controller: AoshidostudyBundle:Default:homepage }
+preguntas_ABM:
+    path:     /preguntas/abm
+    defaults: { _controller: AoshidostudyBundle:Default:abmPreguntas }
+    
+preguntas_QUIZ:
+    path:     /preguntas/quiz
+    defaults: { _controller: AoshidostudyBundle:Default:quizPreguntas }
