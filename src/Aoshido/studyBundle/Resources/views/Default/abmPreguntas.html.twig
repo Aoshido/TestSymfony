@@ -1,49 +1,63 @@
-<HEAD>
-<h1>Preguntas Disponibles</h1>
-</HEAD>
-<body>
-    Total de preguntas: {{ cantidad }}
-    <table border="1">
-        <tr>
-            <th>Pregunta</th>
-            <th>Contenido</th>
-            <th>V o F </th>
-        </tr>
-        {%for pregunta in preguntas %}
-            <tr>
-                <td>{{ pregunta.id }}</td>
-                <td>{{ pregunta.contenido }}</td>
-                <td>
-                    {% if (pregunta.vof == 1) %} 
-                        Verdadero
-                    {%else%}
-                        Falso
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}    
-    </table>
+{% extends '::default/layout.html.twig' %}
 
-    <h2>Agregar preguntas</h2>
+{% block title %}Make Knowledge!{% endblock %}
 
-    <table border="1">
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <tr>
-            <td>{{ form_label(form.contenido) }}</td>
-            <td>{{ form_widget(form.contenido) }}</td>
-        </tr>
-        <tr>
-            <td>{{ form_label(form.vof) }}</td>
-            <td>{{ form_widget(form.vof) }}</td>
-        </tr>
-        <tr>
-            <td align="center"colspan="2">{{ form_widget(form.save) }}</td>
-        </tr>
+{% block abms %}class="active"{% endblock %}
 
-        {{ form_end(form) }}
-    </table>
-    <a href="{{ path('aoshidostudy_index') }}">
-        Inicio
-    </a>
-</body>
+{% block content %}
+    <div class="container">
+        <div class="panel panel-primary">
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="alert alert-success">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+            <div class="panel-heading">Preguntas Disponibles: {{ cantidad }}</div>
+            <div class="panel-body">
+                <table class="table table-striped col-md-10">
+                    <tr>
+                        <th class="col-md-1">Pregunta</th>
+                        <th class="col-md-8">Contenido</th>
+                        <th class="col-md-3">V o F </th>
+                    </tr>
+                    {%for pregunta in preguntas %}
+                        <tr>
+                            <td>{{ pregunta.id }}</td>
+                            <td>{{ pregunta.contenido }}</td>
+                            <td>
+                                {% if (pregunta.vof == 1) %} 
+                                    Verdadero
+                                {%else%}
+                                    Falso
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}    
+                </table>
+                
+                <div class="panel panel-info">
+                    <div class="panel-heading">Agregar preguntas</div>
+                    <div class="panel-body">
+                        <table  >
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+                            <tr>
+                                <td>{{ form_label(form.contenido) }}</td>
+                                <td>{{ form_widget(form.contenido) }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form_label(form.vof) }}</td>
+                                <td>{{ form_widget(form.vof) }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form_widget(form.save) }}</td>
+                            </tr>
+
+                            {{ form_end(form) }}
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
