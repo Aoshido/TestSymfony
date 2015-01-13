@@ -23,7 +23,7 @@ class DefaultController extends Controller {
         $form = $this->createFormBuilder($pregunta)
                 ->add('contenido', 'text')
                 ->add('vof', 'choice', array(
-                    'choices' => array('t' => 'Verdadero', 'f' => 'Falso'),
+                    'choices' => array( TRUE => 'Verdadero', FALSE => 'Falso'),
                     'required' => true,
                 ))
                 ->add('save', 'submit', array('label' => 'Agregar Pregunta'))

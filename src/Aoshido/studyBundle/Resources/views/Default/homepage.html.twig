@@ -2,7 +2,7 @@
 <h1>Comienzo de la Pagina</h1>
 </HEAD>
 <body>
-    <table>
+    <table border="1">
         <tr>
             <th>Pregunta</th>
             <th>V o F </th>
@@ -10,14 +10,20 @@
         {%for pregunta in preguntas %}
             <tr>
                 <td>{{ pregunta.contenido }}</td>
-                <td>{{ pregunta.vof }}</td>
+                <td>
+                    {% if (pregunta.vof == 1) %} 
+                        Verdadero
+                    {%else%}
+                        Falso
+                    {% endif %}
+                </td>
             </tr>
         {% endfor %}    
     </table>
 
     <h2>Aca el form para agregar preguntas</h2>
 
-    <table>
+    <table border="1">
         {{ form_start(form) }}
         {{ form_errors(form) }}
         <tr>
