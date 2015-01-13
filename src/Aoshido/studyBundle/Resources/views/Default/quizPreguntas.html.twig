@@ -5,20 +5,25 @@
 {% block quiz %}class="active"{% endblock %}
 
 {% block content %}
+
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success">
+            {{ flashMessage }}
+        </div>
+    {% endfor %}
+
     <div class="container">
         <div class="panel panel-primary">
-            {% for flashMessage in app.session.flashbag.get('notice') %}
-                <div class="alert alert-success">
-                    {{ flashMessage }}
-                </div>
-            {% endfor %}
+
             <div class="panel-heading">Questionario</div>
 
             <div class="panel-body">
                 <div class="panel panel-info">
                     <div class="panel-heading">Pregunta numero {{ pregunta.id }}</div>
                     <div class="panel-body">
-                        {{ pregunta.contenido }}
+                        <blockquote>
+                            {{ pregunta.contenido }}
+                        </blockquote>
 
                         {{ form_start(form) }}
                         {{ form_row(form.Verdad) }}

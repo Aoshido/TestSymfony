@@ -14,7 +14,7 @@
             {% endfor %}
             <div class="panel-heading">Preguntas Disponibles: {{ cantidad }}</div>
             <div class="panel-body">
-                <table class="table table-striped col-md-10">
+                <table class="table table-striped">
                     <tr>
                         <th class="col-md-1">Pregunta</th>
                         <th class="col-md-8">Contenido</th>
@@ -38,23 +38,15 @@
                 <div class="panel panel-info">
                     <div class="panel-heading">Agregar preguntas</div>
                     <div class="panel-body">
-                        <table  >
+                        <div class="form-group">
                             {{ form_start(form) }}
                             {{ form_errors(form) }}
-                            <tr>
-                                <td>{{ form_label(form.contenido) }}</td>
-                                <td>{{ form_widget(form.contenido) }}</td>
-                            </tr>
-                            <tr>
-                                <td>{{ form_label(form.vof) }}</td>
-                                <td>{{ form_widget(form.vof) }}</td>
-                            </tr>
-                            <tr>
-                                <td>{{ form_widget(form.save) }}</td>
-                            </tr>
-
+                            <label for="contenido">{{ form_label(form.contenido) }} </label>
+                                {{ form_widget(form.contenido) }}
+                                {{ form_widget(form.vof) }}
+                            {{ form_widget(form.save) }}
                             {{ form_end(form) }}
-                        </table>
+                        </div>
                     </div>
                 </div>
             </div>

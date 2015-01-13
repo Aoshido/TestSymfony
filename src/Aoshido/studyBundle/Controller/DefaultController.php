@@ -28,6 +28,8 @@ class DefaultController extends Controller {
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
                     'required' => true,
+                    'multiple' => false,
+                    'expanded' => true,
                 ))
                 ->add('save', 'submit', array('label' => 'Agregar Pregunta'))
                 ->getForm();
