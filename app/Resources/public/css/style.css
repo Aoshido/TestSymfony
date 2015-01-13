@@ -1,0 +1,1047 @@
+.search-magnifier,.search-magnifier:hover,.search-magnifier:focus{
+    background-image: url('http://img.cajadepagos.com/iconpacks/silk/magnifier.png');
+    width:16px ;
+    height:16px;
+    background-color: transparent;
+    border:0px;
+    padding:0px;
+    color:transparent;
+}
+div.button-submit{
+    text-align:center;    
+    background-color: #eaeded;
+    width:auto;
+    margin-left: 0px;
+    margin-right:0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-left: 1px solid #aaaaaa;
+}
+button.button-submit,a.button-submit{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #f5f5f5;
+    border-color: #ddd #ababab #ababab #ddd;
+    border-image: none;
+    border-right: 1px solid #ababab;
+    border-style: solid;
+    border-width: 1px;
+    color: #565656;
+    cursor: pointer;
+    display: inline;
+    font-family: Tahoma,Arial,Verdana,sans-serif;
+    font-size: 100%;
+    font-weight: normal;    
+    line-height: 15px;
+    padding: 3px 10px 3px 7px;
+    margin-top: 0px;
+    overflow: visible;
+    text-decoration: none;
+    width: auto;
+    margin-top: 0;
+}
+
+
+button.button-submit:hover,a.button-submit:hover{
+
+    border: 1px solid #ababab;
+    border-right: 1px solid #aaa;
+    color:black;
+    background-color: #eaeded;
+}
+.form-control {
+    font-size: 11px;
+    padding: 0px;
+    height: 20px;
+    margin-top: 0.5em;
+    text-align:center;
+}
+.control-label{
+    font-size: 11px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    vertical-align: middle;
+    margin: 0px;
+    font-weight: normal;
+}
+.autoadjust {
+
+    width: auto !important;
+}
+.nopadding{
+    padding:0px;
+}
+.nopadding-left{
+    padding-left:0px;
+}
+.nopadding-right{
+    padding-right:0px;
+}
+.toggle-in{
+    width:16px;
+    cursor: pointer;
+    height:16px;
+
+}
+.toggle-collapse{
+    width:16px;
+    cursor: pointer;
+    height:16px;
+}
+.clickeable{
+    cursor:pointer;
+    font-weight: normal;
+
+}
+.clickeable:hover{
+
+    text-decoration: none;
+}
+.excel{
+    padding-right: 2.6em;
+    float:right;
+    margin-bottom: 1em;
+}
+.excel span{
+    float:right;
+    cursor: pointer;
+}
+
+.excel span a{
+
+    font-size: 12px;
+    color:black;
+}
+.resultados-title{
+    margin-left: 1em;
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+.navigation{
+    text-align:right;
+    padding-right: 1em;
+    font-size: 11px;
+}
+.paginanro{
+    padding-top: 2.5em;
+
+}
+.pagination{
+    margin-left: 2em;
+}
+.pagination > li > a, .pagination > li > span {
+    background-color: #f6f9f9;
+    border: 1px solid grey;
+    display: inline;
+    padding: 0.5em 0.8em;
+    color: black;
+    text-decoration: none;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #d9dcdc;
+    font-weight: bold;
+    color:black;
+    border: 1px solid grey;
+}
+input[type="button"], input[type="submit"] {
+    background-color: #5484bb;
+    border: 1px solid #979898;
+    color: white;
+    font-size: 12px;
+    padding: 0.1em 1.5em;
+}
+.table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    width:97%;    
+    border: 1px solid #aaa;
+}
+.table > thead > tr > th {
+    background-color: #003876;
+    color: white;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    text-align: center;
+}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding:3px;
+    text-align: center;
+    font-size: 11px;
+}
+.buscar{
+    border-left: 1px solid #aaaaaa;
+    border-top: 1px solid #aaa;
+    min-height: 35px;    
+    padding-top:5px;
+    background-color: #eaeded;
+}
+.fondogris{
+
+    background-color: #f6f9f9;
+    border-left: 1px solid #aaaaaa;
+    border-right: 0px !important;
+    border-top: 1px solid #aaa;
+}
+/* CSS DE LOGIN*/
+div.login-instrucciones{
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 0.5;
+}
+div.login-titulo{
+    font-size: 1.2em;
+    margin-bottom: 1em;    
+    font-style: normal;
+    font-weight: normal;
+    outline: 0 none;    
+    padding: 0;    
+    vertical-align: baseline;   
+    text-align: center;
+}
+div.loginfields{
+    border: 1px solid #aaa;
+    margin-top: 0.5em;
+    margin-left:auto;
+    margin-right:auto;
+    width: 300px;
+    background-color: #f6f9f9;
+}
+div.loginlabel{
+    margin-left: 1em;
+    padding-left: 1em;
+    padding-top:1em;
+    text-align: left;  
+    border: 0 none;  
+    color: black;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+}
+div.loginfield{
+    margin-right: 2em;
+    padding-right: 2em;
+    padding-top:0.2em;
+    text-align: left;  
+    border: 0 none;  
+}
+div.loginlabel label{
+    font-weight: normal;    
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+/* FIN CSS LOGIN */
+/*COPIANDO CSS DE RENDICIONES*/
+div.container a#logocdp img{
+    float:left;
+    vertical-align:middle;
+    margin-top:20px;
+}
+div.container a#logoempresa img{
+    float:right;
+    vertical-align:middle;
+    width:214px;
+}
+.menutop{
+    background-color: #d9dcdc;
+    height: 30px; 
+    min-height: 30px;
+}
+.navbar{
+    margin-bottom: 0px;
+}
+.menutop .navbar-nav > li > a {
+    color: black;
+    padding-top: 5px;
+    font-size: 12px;
+    height: 28px; 
+    border-left: 1px solid #8594a1;
+    min-height: 28px;
+}
+.menutop .navbar-nav > li > a:hover {
+    color: white;
+    background-color: #8594a1;
+}
+.bordeado{
+    border-top: 1px solid #8594a1;
+    border-bottom: 1px solid #8594a1;
+}
+.salir{
+    border-left: 0px !important;
+}
+.last-right{
+    border-right: 1px solid #8594a1;
+}
+.breadcrumb{
+    background-color: transparent !important;
+    color: #003876;
+    margin-bottom: 0px !important;
+}
+.breadcrumb a{
+    color: #003876;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.breadcrumb > .active {
+    color: #003876;
+    font-size: 12px;
+    font-weight: bold;
+}
+.breadcrumb > li + li:before {
+    color: #003876 !important;
+}
+.menu-usuario > li > a{
+    padding-bottom: 0px !important;
+    padding-top: 5px !important;
+    color:black;
+}
+.menu-usuario > li > a:hover,.menu-usuario > li > a:focus{
+    padding-bottom: 0px !important;
+    padding-top: 5px !important;
+    color:black;
+    background-color:transparent;
+}
+
+.central h3{    
+    margin-top: 0 !important;    
+    color: #003876;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 1em;
+    text-align: left;
+}
+div.container_lista_resumen{
+    background-color: #f6f9f9;
+    border: 1px solid #aaa;
+    width: 100%;
+}
+div.container_lista_resumen ol, div.container_lista_resumen ul{  
+    list-style: none outside none;    
+    background-color: #f6f9f9;
+    margin: 0.5em;
+    padding-left: 0;
+
+}
+.negrita{
+    font-weight: bold;
+}
+.container_login{
+    width:500px;
+}
+.container_change_password{
+    width:500px;
+}
+/*ESTILO PARA NOVEDADES*/
+.panel-novedades{
+    border-color: transparent;
+}
+.panel-novedades > .panel-heading {
+    background-color: transparent;
+    border-color: transparent;
+    margin-bottom: 0px;
+    padding: 5px 15px;
+}
+.panel-novedades > .panel-heading > .panel-title {
+
+    color: #003876;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.panel-novedades > .panel-heading > .panel-title a:hover,.panel-novedades > .panel-heading > .panel-title a:active{
+    text-decoration: none;
+}
+.novedad-vacia{
+    text-align: center;    
+    border-style: solid;
+    border-width: 1px;
+    border-color: #aaa;
+    color: black;
+    padding: 0.5em 1em;
+    vertical-align: middle;    
+    background-color: #f6f9f9;
+    line-height: 1.3em;
+    font-size: 11px;
+    height: 25px;
+    width: 923px;
+}
+
+.novedad-titulo{
+    text-align: left;    
+    border-style: solid;
+    border-width: 1px;
+    border-color: #aaa;
+    color: black;
+    padding: 0.5em 1em;
+    vertical-align: middle;    
+    background-color: #d6d9d9;
+    line-height: 1.3em;
+    font-size: 11px;    
+    height: 25px;
+}
+.novedad-contenido{
+    text-align: left;    
+    border-style: solid;
+    border-width: 1px;
+    border-color: #aaa;
+    color: black;
+    padding: 0.5em 1em;
+    vertical-align: middle;    
+    background-color: #f6f9f9;
+    line-height: 1.3em;
+    font-size: 11px;
+    height: auto;
+}
+.novedad-segmento-toggle-in{
+    background-image: url('http://img.cajadepagos.com/iconpacks/silk/bullet_toggle_minus.png');
+    width:16px;
+    height:16px;
+
+}
+.novedad-segmento-toggle-collapse{
+    background-image: url('http://img.cajadepagos.com/iconpacks/silk/bullet_toggle_plus.png');
+    width:16px;
+    height:16px;
+}
+
+/*FIN ESTILO PARA NOVEDADES*/
+
+/*ESTILO PARA TABS*/
+.nav-tabs {
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    /*border-bottom: 0px;*/
+}
+
+.nav-tabs > li{
+    background-color: #d9dcdc;
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+    display: block;
+    float: left;
+    line-height: 25px;
+    text-align: center;
+}
+.nav-tabs > li > a {
+    color: black;
+    display: block;
+    height: 100%;
+    padding: 0.2em 1em;
+    text-decoration: none;
+    width: auto;
+    border: 0px;
+}
+
+.nav-tabs > li:hover,.nav-tabs > li > a:hover  {
+    background-color: #a0c8e6;
+}
+.nav-tabs > li.active{
+    background-color: white;
+    border-bottom: 1px solid white;
+}
+.nav-tabs > li.active > a{
+    border:0px;
+    color: black;
+}
+.nav-tabs > li.active > a:hover{
+    border:0px;
+    color: black;
+}
+.tabs{
+    border-right: 1px solid #aaa;
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    min-height: 35px;
+    text-align: left;    
+    margin-right: 1.2em;
+    width:1108px;
+    padding-top: 0.5em;
+}
+.tabicon{
+    width:16px;
+    height:16px;
+}
+.cecos_tabs{
+    margin: 1em;   
+}
+.cecos_tabs_contain{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #aaa;
+    border-image: none;
+    border-radius: 0;
+    border-style: none solid solid solid;
+    border-width: 1px;
+    box-shadow: none;
+    overflow: hidden;
+}
+/*fin estilo TABS*/
+/*estilo ver rendicion*/
+.panel-rendicion{
+    box-shadow:none;
+}
+.panel-rendicion >.panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-rendicion >.panel-body{
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    padding: 0px 15px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.panel-rendicion >.panel-body > .row{
+
+    border-bottom: 1px solid #aaaaaa;
+    background-color: #f6f9f9;
+    text-align: left;
+
+}
+.panel-rendicion-items{
+    box-shadow: none;
+}
+.panel-rendicion-items >.panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-rendicion-items >.panel-body{
+    font-size: 12px;
+    padding:0px;
+    border:0px;
+}
+.titulo{
+    background-color: #eaeded;
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+}
+/*fin estilo ver rendicion*/
+/*estilo ver comprobante*/
+.panel-comprobante{
+    box-shadow: none;
+}
+.panel-comprobante >.panel-heading{
+
+    width:93%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.panel-comprobante >.panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-comprobante >.panel-body{
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    padding: 0px 15px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+
+    width:90%;
+}
+.panel-comprobante >.panel-body > .row{
+
+    border-bottom: 1px solid #aaaaaa;
+    background-color: #f6f9f9;
+    text-align: left;
+    height: 35px;
+}
+.panel-comprobante >.panel-body > .row > .col-md-3,.panel-comprobante >.panel-body > .row > .col-md-2{
+    padding-top: 8px;
+    height: 34px;
+}
+/*fin estilo ver comprobante*/
+/*Estilo para formulario de busqueda*/
+
+.panel-busquedas >.panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-busquedas >.panel-body{
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    padding: 0px 10px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+.panel-busquedas >.panel-body  > form >.row{
+
+    text-align: left;
+    height: 35px;
+    padding: 0 0.4em 0.4em 0.4em;
+}
+.panel-busquedas >.panel-body  > form >.row >.col-md-1{
+    background-color: #eaeded;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;  
+    color: black;
+    height: 35px;
+}
+
+.panel-busquedas >.panel-body  > form >.row >.col-md-2{
+    background-color: #eaeded;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;  
+    text-align: left;
+    color: black;
+    height: 35px;
+    /*padding: 0.2em 1em;*/
+}
+
+.panel-busquedas >.panel-body  > form >.row >.col-md-1  > .control-label{
+    font-family: inherit;
+    font-size: 11px;
+    font-style: normal;
+    display:block;
+    line-height: 1.2;
+    position:relative;
+    height: 35px;
+    font-weight: normal;
+
+}
+.panel-busquedas >.panel-body  > form >.row >.col-md-8{
+    border-right: 1px solid #aaaaaa;     
+    height: 35px;
+}
+.panel-busquedas >.panel-body  > form >.row >.col-md-5{
+
+    background-color: #f6f9f9;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;     
+    color: black;
+    height: 35px;
+}
+.panel-busquedas >.panel-body  > form >.row >.col-md-6{
+    background-color: #f6f9f9;
+
+    height: 35px;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;     
+    color: black;
+}
+.panel-busquedas >.panel-body  > form >.row >.col-md-11{
+
+    background-color: #f6f9f9;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;     
+    color: black;
+    height: 35px;
+}
+.search-field-rendicion-item-tipo{
+
+    width: 35%;    
+}
+.search-field-bp{
+    width: 35%;    
+    padding:0px;
+    height: 23px;
+}
+search-field-cuenta{
+
+    width: 65%;    
+}search-field-area{
+
+    width: 35%;    
+}
+.search-field-usuario{
+    width: 60%;    
+    height: 23px;
+}
+.search-field-tipo-rendicion{
+    width: 60%;    
+}
+.search-field-moneda{
+    width: 30%;    
+}
+.search-field-sociedad{
+    width: 400px;   
+}
+.search-field-fecha-finalizacion{
+    width: 70%;    
+    height: 25px;
+    float:left;
+    margin-left: 2em !important;
+}
+.search-field-warnings{
+    text-align:right;
+    margin-right:0px;
+    margin-top: 5px ;
+}
+.search-field-comprobante-descrip{
+
+    width: 80%;    
+    text-align:center;
+}
+
+.search-field-estado-carga{
+
+    width: 200px;    
+    text-align:center;
+}
+
+
+/*css para ABMs (sidebar)*/
+ul.listaopciones{
+    left:1px;
+    position:relative;
+    top:-1px;
+    width:150px;
+    list-style: none;
+    padding-left:5px;
+}
+ul.listaopciones li {
+    background-color:#D9DCDC;
+    /*border-bottom-color:grey;
+    border-bottom-style:solid;
+    border-bottom-width:1px;*/
+    border-left-color:grey;
+    border-left-style:solid;
+    border-left-width:1px;
+    border-right-color:grey;
+    border-right-style:solid;
+    border-right-width:1px;
+    margin-bottom:0;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+    cursor: pointer;
+    border-top-color:grey;
+    border-top-style:solid;
+    border-top-width:1px;
+}
+ul.listaopciones a:last-child li {
+    border-bottom-color:grey;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+}
+ul.listaopciones li:hover{
+    background-color:#A0C8E6;
+}
+ul.listaopciones a {
+    color:black;
+    text-decoration:none;
+    font-size:11px;
+    border:0px;
+    font-style:normal;
+    font-weight:normal;
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+ul.listaopciones li.active{
+    border-right: 0px;
+    background-color: white;
+}
+#sidebar{
+    float:left;
+    top: 1px;
+    position: relative;
+}
+.busqueda_abms{
+    min-height: 300px;
+    width: 85%;
+    background-color: white;
+    margin-left: 150px;
+    border-color:grey;
+    border-style:solid;
+    border-bottom: 0px;
+    border-width:1px;
+}
+
+.altamodificacion_abms{
+    width: 85%;
+    background-color: white;
+    margin-left: 150px;
+    //border-color:grey;
+    //border-style:solid;
+    border-top: 0px;
+    border-width:1px;
+}
+
+/*Estilo del layout de ABM*/
+
+/************************************************************************ 
+    Parte superior donde se encuentra la lista de las entidades actuales
+************************************************************************/
+/*version Beta de estilos de panel - Maxi*/
+.alert-message{
+    padding:5px;
+    margin-bottom: 0px;
+}
+.panel-abms{
+    padding-top:2px;
+    border:1px solid grey;
+
+    border-color: grey grey -moz-use-text-color;
+    border-radius: 0px;
+    overflow: hidden;
+    box-shadow: none;
+}
+.panel-abms  .busquedas{
+    float:right;
+    padding-top: 2px;
+}
+.panel-abms .panel-heading{
+    float:left;
+}
+.panel-abms .panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+
+    text-align: left;
+    vertical-align: middle;
+}
+
+.panel-abms .panel-body{
+    padding: 0px 10px;
+    font-size: 12px;
+    clear:both;
+}
+.panel-abms-form{
+    padding-top:2px;
+    border:0px;
+    overflow: hidden;
+    box-shadow: none;
+}
+.panel-abms-form >.panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-abms-form >  .errores{
+
+    margin-left:1em;
+    margin-right:0em;
+    padding-left:0px;
+
+}
+.panel-abms-form >  .errores > .alert-danger{
+    padding:5px;
+}
+.panel-abms-form  >.panel-body{
+    border-bottom: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-left: 1em;    
+    padding: 0 15px ;
+}
+.panel-abms-form  >.panel-body  >form > .row{
+
+    border-top: 1px solid #aaa;    background-color: #f6f9f9;
+}
+.panel-abms-form  >.panel-body  >form > .row > div > input,.panel-abms-form  >.panel-body  >form > .row > div > select{
+    width:70%;
+}
+/*fin version Beta de estilos de panel*/
+.abms_show_div_container{
+    color: #003876;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    text-align: left;
+    vertical-align: middle;
+} 
+
+.abms_show_div_container >h3{
+    color: #003876;
+    font-size: 12px; 
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-weight: bold;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.show_div_table{
+    font-size: 12px;
+    vertical-align: middle;
+    horizontal-align: middle;
+}
+
+/************************************************************************ 
+    Parte inferior donde se encuentran los formularios para crear una   
+    Nueva entidad
+************************************************************************/
+
+.abms_edit_div_container{
+    border-bottom: 0px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.abms_edit_div_container >h3{
+    margin-top:0px;
+    color: #003876;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.abms_edit_div_container >.edit_div_form{
+    font-size: 12px;
+    vertical-align: middle;
+    padding-left: 30px;
+}
+
+.edit_div_form >.row >.input_div{
+    border-left: 0px !important;
+}
+
+.abms_edit_div_container .edit_div_form .row .col-md-1,
+.abms_edit_div_container .edit_div_form .row .col-md-2,
+.abms_edit_div_container .edit_div_form .row .col-md-5,
+.abms_edit_div_container .edit_div_form .row .col-md-6,
+.abms_edit_div_container .edit_div_form .row .col-md-8{
+    background-color: #eaeded;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+    text-align: left;
+    color: black;
+    margin: 0;
+    outline: 0 none;    
+    min-height: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.submit_btn_div{
+    text-align: center;
+    padding-top: 10px;
+    border-bottom: 1px solid #aaaaaa;
+}
+
+
+/*
+.abms_edit_div_container >.form-group{
+    background-color: #eaeded;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;  
+    text-align: left;
+    color: black;
+    vertical-align: middle;
+    margin: 0;
+    outline: 0 none;    
+    min-height: 50px;
+}
+
+.panel .panel-abms{
+    border-bottom : 0px;
+    margin-bottom: 0px ;
+}
+
+.panel-abms >.panel-heading > .panel-title{ 
+    color: #003876;
+    font-size: 20px;
+    font-weight: bold;
+    //margin-bottom: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+.panel-abms >.panel-body{
+    padding: 0px 50px;
+    font-size: 12px;
+    vertical-align: middle;
+    horizontal-align: middle;
+}
+.panel-abms >.panel-body  > form >.row {
+
+}
+
+
+.panel-abms >.panel-body  > form >.row >.col-md-1{
+    background-color: #eaeded;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;  
+    text-align: left;
+    color: black;
+    vertical-align: middle;
+    margin: 0;
+    outline: 0 none;    
+    min-height: 50px;
+
+}
+.panel-abms >.panel-body  > form >.row >.col-md-2{
+    background-color: #eaeded;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;  
+    text-align: left;
+    color: black;
+    vertical-align: middle;
+    margin: 0;
+    outline: 0 none;    
+    min-height: 50px;
+
+}
+.panel-abms >.panel-body  > form >.row >.col-md-5{
+    min-height: 40px;
+    padding: 0.4em;
+    background-color: #f6f9f9;
+    text-align: left;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;     
+    color: black;
+    text-align: left;
+    min-height: 50px;
+}
+.panel-abms>.panel-body  > form >.row >.col-md-6{
+    min-height: 40px;
+    padding: 0.4em;
+    background-color: #f6f9f9;
+    text-align: left;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;     
+    color: black;
+    text-align: left;
+    min-height: 50px;
+}
+
+.panel-abms >.panel-body  > form >.row >.col-md-8{
+    border-right: 1px solid #aaaaaa;     
+    border-bottom: 1px solid #aaaaaa;     
+}
+.panel-abms >.panel-body  > form >.row >.col-md-11{
+    min-height: 40px;
+    padding: 0.4em;
+    background-color: #f6f9f9;
+    text-align: left;
+    border-top: 1px solid #aaa;
+    border-left: 1px solid #aaaaaa;     
+    color: black;
+    text-align: left;
+    min-height: 50px;
+}*/
