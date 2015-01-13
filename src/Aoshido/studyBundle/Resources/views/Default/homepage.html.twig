@@ -2,11 +2,36 @@
 <h1>Comienzo de la Pagina</h1>
 </HEAD>
 <body>
-    <h2>Aca Iria la lista de preguntas</h2>
-    1
-    2
-    3
-    4
+    <table>
+        <tr>
+            <th>Pregunta</th>
+            <th>V o F </th>
+        </tr>
+        {%for pregunta in preguntas %}
+            <tr>
+                <td>{{ pregunta.contenido }}</td>
+                <td>{{ pregunta.vof }}</td>
+            </tr>
+        {% endfor %}    
+    </table>
+
     <h2>Aca el form para agregar preguntas</h2>
-    {{form(form)}}
+
+    <table>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <tr>
+            <td>{{ form_label(form.contenido) }}</td>
+            <td>{{ form_widget(form.contenido) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.vof) }}</td>
+            <td>{{ form_widget(form.vof) }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">{{ form_widget(form.save) }}</td>
+        </tr>
+
+        {{ form_end(form) }}
+    </table>
 </body>
