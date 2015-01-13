@@ -64,6 +64,7 @@ class DefaultController extends Controller {
                 ->find($id);
 
         $form = $this->createFormBuilder($respuesta)
+                ->add('before','hidden',array('data' => $id))
                 ->add('Falso', 'submit', array('label' => 'Falso'))
                 ->add('Verdad', 'submit', array('label' => 'Verdadero'))
                 ->getForm();
@@ -73,8 +74,17 @@ class DefaultController extends Controller {
         if ($form->isValid()) {
 
             $respuesta = $form->get('Verdad')->isClicked() ? TRUE : FALSE;
-
-            if ($respuesta['vof'] == $pregunta->getVof()) {
+            $last_question = $form->getData();
+            
+            
+            $pregunta = $this->getDoctrine()
+                ->getRepository('AoshidostudyBundle:Pregunta')
+                ->find($last_question['before']);
+            
+            /*echo "La respuesta tuya fue: " . $respuesta . "Y la respuesta era:" . $pregunta->getVof();
+                    die();*/
+                    
+            if ($respuesta === $pregunta->getVof()) {
                 $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Correcta!');
             } else {
                 $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Incorrecta!');
