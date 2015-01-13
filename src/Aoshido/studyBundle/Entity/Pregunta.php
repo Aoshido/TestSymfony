@@ -1,29 +1,94 @@
 <?php
 
-namespace AoshidoBundle\Entity;
+namespace Aoshido\studyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Pregunta
+ *
+ * @ORM\Table()
  * @ORM\Entity
  */
-class Pregunta {
-
+class Pregunta
+{
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=1000)
+     * @var string
+     *
+     * @ORM\Column(name="Contenido", type="text")
      */
-    protected $contenido;
+    private $contenido;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var boolean
+     *
+     * @ORM\Column(name="Vof", type="boolean")
      */
-    protected $vof;
+    private $vof;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set contenido
+     *
+     * @param string $contenido
+     * @return Pregunta
+     */
+    public function setContenido($contenido)
+    {
+        $this->contenido = $contenido;
+
+        return $this;
+    }
+
+    /**
+     * Get contenido
+     *
+     * @return string 
+     */
+    public function getContenido()
+    {
+        return $this->contenido;
+    }
+
+    /**
+     * Set vof
+     *
+     * @param boolean $vof
+     * @return Pregunta
+     */
+    public function setVof($vof)
+    {
+        $this->vof = $vof;
+
+        return $this;
+    }
+
+    /**
+     * Get vof
+     *
+     * @return boolean 
+     */
+    public function getVof()
+    {
+        return $this->vof;
+    }
 }
