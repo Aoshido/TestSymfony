@@ -1,7 +1,8 @@
 <HEAD>
-<h1>Comienzo de la Pagina</h1>
+<h1>Preguntas Disponibles</h1>
 </HEAD>
 <body>
+    Total de preguntas: {{ cantidad }}
     <table border="1">
         <tr>
             <th>Pregunta</th>
@@ -23,7 +24,7 @@
         {% endfor %}    
     </table>
 
-    <h2>Aca el form para agregar preguntas</h2>
+    <h2>Agregar preguntas</h2>
 
     <table border="1">
         {{ form_start(form) }}

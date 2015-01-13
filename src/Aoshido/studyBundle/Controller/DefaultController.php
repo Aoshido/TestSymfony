@@ -17,6 +17,8 @@ class DefaultController extends Controller {
         $preguntas = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->findAll();
+        
+        $cant = count($preguntas);
 
         $pregunta = new Pregunta();
 
@@ -40,31 +42,40 @@ class DefaultController extends Controller {
         return $this->render('AoshidostudyBundle:Default:abmPreguntas.html.twig', array(
                     'form' => $form->createView(),
                     'preguntas' => $preguntas,
+                    'cantidad' => $cant,
         ));
     }
 
     public function quizPreguntasAction(Request $request) {
 
-        $id = rand(1, 2);
+        $preguntas = $this->getDoctrine()
+                ->getRepository('AoshidostudyBundle:Pregunta')
+                ->findAll();
+
+        $id = rand(1, count($preguntas));
 
         $pregunta = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->find($id);
 
-        $form = $this->createFormBuilder($pregunta)
+        $respuesta = array();
+        $form = $this->createFormBuilder($respuesta)
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
                     'required' => true,))
                 ->add('save', 'submit', array('label' => 'Responder!'))
                 ->getForm();
-        
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            // perform some action, such as saving the task to the database
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($pregunta);
-            $em->flush();
+            $respuesta = $form->getData();
+            
+            if ($respuesta['vof'] == $pregunta->getVof()){
+                echo "ENHORABUENACAPO";
+            }else{
+                echo "skse";
+            }
         }
 
         return $this->render('AoshidostudyBundle:Default:quizPreguntas.html.twig', array(
