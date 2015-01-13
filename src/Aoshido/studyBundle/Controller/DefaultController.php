@@ -62,28 +62,28 @@ class DefaultController extends Controller {
                 ->find($id);
 
         $form = $this->createFormBuilder($respuesta)
-                ->add('vof', 'choice', array(
-                    'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
-                    'required' => true,))
-                ->add('Verdad', 'submit', array('label' => 'Verdadero'))
                 ->add('Falso', 'submit', array('label' => 'Falso'))
+                ->add('Verdad', 'submit', array('label' => 'Verdadero'))
                 ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $respuesta = $form->getData();
+
+            $respuesta = $form->get('Verdad')->isClicked() ? TRUE : FALSE;
+
             if ($respuesta['vof'] == $pregunta->getVof()) {
-                $resultado = "ENHORABUENACAPO";
+                $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Correcta!');
             } else {
-                $resultado = "skse";
+                $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Incorrecta!');
             }
+            return $this->redirect($this->generateUrl('preguntas_QUIZ'));
         }
 
         return $this->render('AoshidostudyBundle:Default:quizPreguntas.html.twig', array(
                     'form' => $form->createView(),
                     'pregunta' => $pregunta,
-                    'resultado' => $resultado,
+                        //'resultado' => $resultado,
         ));
     }
 
