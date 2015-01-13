@@ -13,8 +13,6 @@ class DefaultController extends Controller {
     }
 
     public function homepageAction(Request $request) {
-        
-        
         $preguntas = $this->getDoctrine()->getRepository('AoshidostudyBundle:Pregunta')
                             ->findAll();
         
