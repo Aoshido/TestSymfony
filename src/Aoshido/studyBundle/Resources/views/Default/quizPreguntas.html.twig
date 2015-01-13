@@ -7,10 +7,10 @@
             <th>Pregunta</th>
             <th>Contenido</th>
         </tr>
-            <tr>
-                <td>{{ pregunta.id }}</td>
-                <td>{{ pregunta.contenido }}</td>
-            </tr>
+        <tr>
+            <td>{{ pregunta.id }}</td>
+            <td>{{ pregunta.contenido }}</td>
+        </tr>
     </table>
 
     <h2>Tu Respuesta?</h2>
@@ -28,6 +28,9 @@
 
         {{ form_end(form) }}
     </table>
+    {% if (resultado != NULL) %}
+        <h3> La respuesta es... {{resultado}} </h3>
+    {% endif %}
     <a href="{{ path('aoshidostudy_index') }}">
         Inicio
     </a>
