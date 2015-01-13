@@ -1,23 +1,27 @@
 {% extends '::base.html.twig' %}
 
-{% block body %}
-    <div class="panel panel-primary">
-        <div class="panel-heading">Questionario</div>
-        
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-4">Pregunta</div>
-                <div class="col-md-8">Contenido</div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">{{ pregunta.id }}</div>
-                <div class="col-md-8">{{ pregunta.contenido }}</div>
-            </div>
+{% block title %}Quiz Time!{% endblock %}
 
-            <h2>Tu Respuesta?</h2>
-            {{ form_start(form, { 'style': 'horizontal' }) }}
-            {{ form_row(form.vof) }}
-            {{ form_end(form) }}
+{% block body %}
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Questionario</div>
+
+            <div class="panel-body">
+                <div class="panel panel-info">
+                    <div class="panel-heading">Pregunta numero {{ pregunta.id }}</div>
+                    <div class="panel-body">
+                        {{ pregunta.contenido }}
+                    </div>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Tu Respuesta?</div>
+                    {{ form_start(form, { 'style': 'horizontal' }) }}
+                    {{ form_row(form.vof) }}
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -65,7 +65,8 @@ class DefaultController extends Controller {
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
                     'required' => true,))
-                ->add('save', 'submit', array('label' => 'Responder!'))
+                ->add('Verdad', 'submit', array('label' => 'Verdadero'))
+                ->add('Falso', 'submit', array('label' => 'Falso'))
                 ->getForm();
 
         $form->handleRequest($request);
