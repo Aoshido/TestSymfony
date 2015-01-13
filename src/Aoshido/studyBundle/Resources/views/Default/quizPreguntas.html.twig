@@ -1,37 +1,23 @@
-<HEAD>
-<h1>La Pregunta es....</h1>
-</HEAD>
-<body>
-    <table border="1">
-        <tr>
-            <th>Pregunta</th>
-            <th>Contenido</th>
-        </tr>
-        <tr>
-            <td>{{ pregunta.id }}</td>
-            <td>{{ pregunta.contenido }}</td>
-        </tr>
-    </table>
+{% extends '::base.html.twig' %}
 
-    <h2>Tu Respuesta?</h2>
+{% block body %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">Questionario</div>
+        
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">Pregunta</div>
+                <div class="col-md-8">Contenido</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">{{ pregunta.id }}</div>
+                <div class="col-md-8">{{ pregunta.contenido }}</div>
+            </div>
 
-    <table border="1">
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
-        <tr>
-            <td>{{ form_label(form.vof) }}</td>
-            <td>{{ form_widget(form.vof) }}</td>
-        </tr>
-        <tr>
-            <td align="center"colspan="2">{{ form_widget(form.save) }}</td>
-        </tr>
-
-        {{ form_end(form) }}
-    </table>
-    {% if (resultado != NULL) %}
-        <h3> La respuesta es... {{resultado}} </h3>
-    {% endif %}
-    <a href="{{ path('aoshidostudy_index') }}">
-        Inicio
-    </a>
-</body>
+            <h2>Tu Respuesta?</h2>
+            {{ form_start(form, { 'style': 'horizontal' }) }}
+            {{ form_row(form.vof) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
