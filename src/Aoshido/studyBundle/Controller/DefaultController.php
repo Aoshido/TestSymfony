@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller {
 
     public function indexAction() {
-        return $this->render('AoshidostudyBundle:Default:index.html.twig');
+        return $this->render('AoshidostudyBundle::index.html.twig');
     }
 
     public function abmPreguntasAction(Request $request) {
@@ -60,7 +60,7 @@ class DefaultController extends Controller {
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->find($id);
         
-        $form = $this->createFormPregunta($pregunta);
+        $form = $this->editFormPregunta($pregunta);
         
         $form->handleRequest($request);
 
@@ -104,14 +104,10 @@ class DefaultController extends Controller {
 
             $respuesta = $form->get('Verdad')->isClicked() ? TRUE : FALSE;
             $last_question = $form->getData();
-            
-            
+        
             $pregunta = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->find($last_question['before']);
-            
-            /*echo "La respuesta tuya fue: " . $respuesta . "Y la respuesta era:" . $pregunta->getVof();
-                    die();*/
                     
             if ($respuesta === $pregunta->getVof()) {
                 $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Correcta!');
@@ -142,6 +138,24 @@ class DefaultController extends Controller {
                     'expanded' => true,
                 ))
                 ->add('save', 'submit', array('label' => 'Agregar Pregunta'))
+                ->getForm();
+        return ($form);
+    }
+    
+    private function editFormPregunta(Pregunta $pregunta){
+        
+        $form = $this->createFormBuilder($pregunta)
+                ->add('contenido', 'text')
+                ->add('materia','text')
+                ->add('tema','text')
+                ->add('respuesta','text')
+                ->add('vof', 'choice', array(
+                    'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
+                    'required' => true,
+                    'multiple' => false,
+                    'expanded' => true,
+                ))
+                ->add('save', 'submit', array('label' => 'Editar Pregunta'))
                 ->getForm();
         return ($form);
     }

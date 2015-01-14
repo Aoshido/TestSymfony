@@ -9,29 +9,28 @@
         <div class="panel panel-primary">
 
             {% include "AoshidostudyBundle::flashmessages.html.twig" %}
-            
+
             <div class="panel-heading">Preguntas Disponibles: {{ cantidad }}</div>
             <div class="panel-body">
                 <table class="table table-striped">
                     <tr>
-                        <th class="col-md-1 text-center">Nro</th>
-                        <th class="col-md-7">Contenido</th>
+                        <th class="col-md-5">Contenido</th>
                         <th class="col-md-2">Materia</th>
                         <th class="col-md-1">Tema</th>
                         <th class="col-md-1">V o F</th>
                         <th class="col-md-1">RTA</th>
+                        <th class="col-md-2">&nbsp</th>
                     </tr>
                     {% for pregunta in paginas %}
                         <tr>
-                            <td class="col-md-1 text-center"><a href="{{ path('preguntas_EDIT', { 'id': pregunta.id })}}"><div style="height:100%;width:100%">{{ pregunta.id }}</div></a></td>
-                            <td class="col-md-7">{{ pregunta.contenido }}</td>
+                            <td class="col-md-5">{{ pregunta.contenido }}</td>
                             <td class="col-md-2">{{ pregunta.materia }}</td>
                             <td class="col-md-1">{{ pregunta.tema }}</td>
                             <td class="col-md-1">
                                 {% if (pregunta.vof == 1) %} 
-                                    <span class="glyphicon glyphicon-ok-circle blue" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-ok-circle green" aria-hidden="true"> TRUE</span>
                                 {%else%}
-                                    <span class="glyphicon glyphicon-remove-circle blue" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-remove-circle red" aria-hidden="true"> FALSE</span>
                                 {% endif %}
                             </td>
                             <td class="col-md-1">
@@ -40,6 +39,19 @@
                                 {%else%}
                                     <span class="glyphicon glyphicon glyphicon-exclamation-sign red" aria-hidden="true"></span>
                                 {% endif %}
+                            </td>
+                            <td class="col-md-2">
+                                <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-success" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                                    </button>    
+                                    <button type="button" class="btn btn-danger" aria-label="Left Align">
+                                        <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
+                                    </button>    
+                                   
+                                </div>
+                                 <a href ="{{ path('preguntas_EDIT', { 'id': pregunta.id })}}">
+                                    </a>
                             </td>
                         </tr>
                     {% endfor %}
