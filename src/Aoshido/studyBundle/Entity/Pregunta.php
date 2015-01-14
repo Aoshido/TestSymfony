@@ -35,6 +35,12 @@ class Pregunta
      */
     private $vof;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Materia", type="text",options={"default":"General"})
+     */
+    private $materia ;
 
     /**
      * Get id
@@ -90,5 +96,28 @@ class Pregunta
     public function getVof()
     {
         return $this->vof;
+    }
+
+    /**
+     * Set materia
+     *
+     * @param string $materia
+     * @return Pregunta
+     */
+    public function setMateria($materia)
+    {
+        $this->materia = $materia;
+
+        return $this;
+    }
+
+    /**
+     * Get materia
+     *
+     * @return string 
+     */
+    public function getMateria()
+    {
+        return $this->materia;
     }
 }

@@ -19,6 +19,10 @@ class DefaultController extends Controller {
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->findAll();
 
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($preguntas, $this->getRequest()->query->get('page', 1), 10);
+        $pagination->setPageRange(6);
+        
         $cant = count($preguntas);
 
         $pregunta = new Pregunta();
@@ -44,7 +48,7 @@ class DefaultController extends Controller {
 
         return $this->render('AoshidostudyBundle:Default:abmPreguntas.html.twig', array(
                     'form' => $form->createView(),
-                    'preguntas' => $preguntas,
+                    'paginas' => $pagination,
                     'cantidad' => $cant,
         ));
     }

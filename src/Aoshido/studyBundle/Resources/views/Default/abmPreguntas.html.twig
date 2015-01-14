@@ -20,7 +20,7 @@
                         <th class="col-md-8">Contenido</th>
                         <th class="col-md-3">V o F </th>
                     </tr>
-                    {%for pregunta in preguntas %}
+                    {% for pregunta in paginas %}
                         <tr>
                             <td>{{ pregunta.id }}</td>
                             <td>{{ pregunta.contenido }}</td>
@@ -32,9 +32,12 @@
                                 {% endif %}
                             </td>
                         </tr>
-                    {% endfor %}    
+                    {% endfor %}
                 </table>
-                
+                <div class="navigation">
+                    {{ knp_pagination_render(paginas) }}
+                </div>
+
                 <div class="panel panel-info">
                     <div class="panel-heading">Agregar preguntas</div>
                     <div class="panel-body">
@@ -42,8 +45,8 @@
                             {{ form_start(form) }}
                             {{ form_errors(form) }}
                             <label for="contenido">{{ form_label(form.contenido) }} </label>
-                                {{ form_widget(form.contenido) }}
-                                {{ form_widget(form.vof) }}
+                            {{ form_widget(form.contenido) }}
+                            {{ form_widget(form.vof) }}
                             {{ form_widget(form.save) }}
                             {{ form_end(form) }}
                         </div>

@@ -12,11 +12,17 @@
 
             <!-- Latest compiled and minified JavaScript -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
+            
+            {% stylesheets '../app/Resources/public/css/style.css' %}
+                <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+            {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body bgcolor="#E6E6FA">
+    {% image '@AoshidostudyBundle/img/background.png' %}
+    <body background="{{ asset_url }}">
+        {% endimage %}
     {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
