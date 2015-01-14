@@ -2,23 +2,33 @@
 
 {% block body %}
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li {% block abms %} {% endblock %} ><a href="{{path('preguntas_ABM')}}">Abm Preguntas</a></li>
-                    <li {% block quiz %} {% endblock %}><a href="{{path('preguntas_QUIZ')}}">Quiz!</a></li>
+                    <li {% block home %} {% endblock %} ><a href="{{path('aoshidostudy_index')}}">
+                            <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+                        </a>
+                    </li>
+                    <li {% block abms %} {% endblock %} ><a href="{{path('preguntas_ABM')}}">
+                            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> ABM
+                        </a>
+                    </li> 
+                    <li {% block quiz %} {% endblock %} ><a href="{{path('preguntas_QUIZ')}}">
+                            <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Quiz!
+                        </a>
+                    </li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </div>
-                
+
     <div class="container col-md-12">
 
         {% block content %}
 
         {% endblock %}
-        
+
     </div>     
 
 {% endblock %}

@@ -1,23 +1,8 @@
-<table>
-    <tr>
-        <td>
-            <a href="{{ path('aoshidostudy_index') }}">
-                This Page
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{ path('preguntas_ABM') }}">
-                Preguntas ABM
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="{{ path('preguntas_QUIZ') }}">
-                Quiz !
-            </a>
-        </td>
-    </tr>
-</table>
+{% extends '::default/layout.html.twig' %}
+
+{% block title %}Study!{% endblock %}
+
+{% block home %}class="active"{% endblock %}
+
+{% block content %}
+{% endblock %}

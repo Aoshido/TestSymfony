@@ -7,14 +7,20 @@
 {% block content %}
 
     {% for flashMessage in app.session.flashbag.get('notice') %}
+        {% if flashMessage == 'La respuesta es Correcta!' %}
+            <div class="alert alert-success alert-message" >
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                &nbsp{{ flashMessage }}&nbsp;
+            </div>
+        {% else %}
+            <div class="alert alert-danger alert-message" >
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                &nbsp{{ flashMessage }}&nbsp;
+            </div>
+        {% endif %}
 
-        <div  class="alert alert-success alert-message" >
-            <span class="close" data-dismiss="alert">×</span>
-            {{ flashMessage }}&nbsp;
-        </div>
-        
     {% endfor %}
-    
+
     <div class="container">
         <div class="panel panel-primary">
 
