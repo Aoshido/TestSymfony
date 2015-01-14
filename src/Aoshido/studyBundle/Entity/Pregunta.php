@@ -41,6 +41,20 @@ class Pregunta
      * @ORM\Column(name="Materia", type="text",options={"default":"General"})
      */
     private $materia ;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Tema", type="text",options={"default":"General"})
+     */
+    private $tema ;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Respuesta", type="text",options={"default":""})
+     */
+    private $respuesta ;
 
     /**
      * Get id
@@ -119,5 +133,51 @@ class Pregunta
     public function getMateria()
     {
         return $this->materia;
+    }
+
+    /**
+     * Set tema
+     *
+     * @param string $tema
+     * @return Pregunta
+     */
+    public function setTema($tema)
+    {
+        $this->tema = $tema;
+
+        return $this;
+    }
+
+    /**
+     * Get tema
+     *
+     * @return string 
+     */
+    public function getTema()
+    {
+        return $this->tema;
+    }
+
+    /**
+     * Set respuesta
+     *
+     * @param string $respuesta
+     * @return Pregunta
+     */
+    public function setRespuesta($respuesta)
+    {
+        $this->respuesta = $respuesta;
+
+        return $this;
+    }
+
+    /**
+     * Get respuesta
+     *
+     * @return string 
+     */
+    public function getRespuesta()
+    {
+        return $this->respuesta;
     }
 }
