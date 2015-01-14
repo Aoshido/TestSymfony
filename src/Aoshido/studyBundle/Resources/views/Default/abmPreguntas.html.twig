@@ -16,19 +16,31 @@
             <div class="panel-body">
                 <table class="table table-striped">
                     <tr>
-                        <th class="col-md-1">Pregunta</th>
-                        <th class="col-md-8">Contenido</th>
-                        <th class="col-md-3">V o F </th>
+                        <th class="col-md-1 text-center">Nro</th>
+                        <th class="col-md-7">Contenido</th>
+                        <th class="col-md-2">Materia</th>
+                        <th class="col-md-1">Tema</th>
+                        <th class="col-md-1">V o F</th>
+                        <th class="col-md-1">RTA</th>
                     </tr>
                     {% for pregunta in paginas %}
                         <tr>
-                            <td>{{ pregunta.id }}</td>
-                            <td>{{ pregunta.contenido }}</td>
-                            <td>
+                            <td class="col-md-1 text-center"><a href="{{path('aoshidostudy_index')}}"><div style="height:100%;width:100%">{{ pregunta.id }}</div></a></td>
+                            <td class="col-md-7">{{ pregunta.contenido }}</td>
+                            <td class="col-md-2">{{ pregunta.materia }}</td>
+                            <td class="col-md-1">{{ pregunta.tema }}</td>
+                            <td class="col-md-1">
                                 {% if (pregunta.vof == 1) %} 
-                                    Verdadero
+                                    <span class="glyphicon glyphicon-ok-circle blue" aria-hidden="true"></span>
                                 {%else%}
-                                    Falso
+                                    <span class="glyphicon glyphicon-remove-circle blue" aria-hidden="true"></span>
+                                {% endif %}
+                            </td>
+                            <td class="col-md-1">
+                                {% if (pregunta.respuesta != "") %} 
+                                    <span class="glyphicon glyphicon glyphicon-check green" aria-hidden="true"></span>
+                                {%else%}
+                                    <span class="glyphicon glyphicon glyphicon-exclamation-sign red" aria-hidden="true"></span>
                                 {% endif %}
                             </td>
                         </tr>
@@ -44,9 +56,15 @@
                         <div class="form-group">
                             {{ form_start(form) }}
                             {{ form_errors(form) }}
+
                             <label for="contenido">{{ form_label(form.contenido) }} </label>
                             {{ form_widget(form.contenido) }}
                             {{ form_widget(form.vof) }}
+
+                            {{ form_row(form.materia) }}
+                            {{ form_row(form.tema) }}
+                            {{ form_row(form.respuesta) }}
+
                             {{ form_widget(form.save) }}
                             {{ form_end(form) }}
                         </div>

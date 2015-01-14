@@ -26,17 +26,8 @@ class DefaultController extends Controller {
         $cant = count($preguntas);
 
         $pregunta = new Pregunta();
-
-        $form = $this->createFormBuilder($pregunta)
-                ->add('contenido', 'text')
-                ->add('vof', 'choice', array(
-                    'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
-                    'required' => true,
-                    'multiple' => false,
-                    'expanded' => true,
-                ))
-                ->add('save', 'submit', array('label' => 'Agregar Pregunta'))
-                ->getForm();
+        $form = $this->createFormPregunta($pregunta);
+        
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -101,6 +92,24 @@ class DefaultController extends Controller {
                     'pregunta' => $pregunta,
                         //'resultado' => $resultado,
         ));
+    }
+    
+    private function createFormPregunta(Pregunta $pregunta){
+        
+        $form = $this->createFormBuilder($pregunta)
+                ->add('contenido', 'text')
+                ->add('materia','text')
+                ->add('tema','text')
+                ->add('respuesta','text')
+                ->add('vof', 'choice', array(
+                    'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
+                    'required' => true,
+                    'multiple' => false,
+                    'expanded' => true,
+                ))
+                ->add('save', 'submit', array('label' => 'Agregar Pregunta'))
+                ->getForm();
+        return ($form);
     }
 
 }
