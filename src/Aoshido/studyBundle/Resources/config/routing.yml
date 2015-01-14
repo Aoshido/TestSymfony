@@ -6,6 +6,10 @@ preguntas_ABM:
     path:     /preguntas/abm
     defaults: { _controller: AoshidostudyBundle:Default:abmPreguntas }
     
+preguntas_EDIT:
+    path:     /preguntas/abm/edit/{id}
+    defaults: { _controller: AoshidostudyBundle:Default:editPreguntas }
+    
 preguntas_QUIZ:
     path:     /preguntas/quiz
     defaults: { _controller: AoshidostudyBundle:Default:quizPreguntas }

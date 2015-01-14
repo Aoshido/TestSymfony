@@ -1,0 +1,23 @@
+{% extends "AoshidostudyBundle:ABM:abmPreguntas.html.twig" %}
+{% block form %}
+    <div class="panel panel-info">
+        <div class="panel-heading">Agregar preguntas</div>
+        <div class="panel-body">
+            <div class="form-group">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                <label for="contenido">{{ form_label(form.contenido) }} </label>
+                {{ form_widget(form.contenido) }}
+                {{ form_widget(form.vof) }}
+
+                {{ form_row(form.materia) }}
+                {{ form_row(form.tema) }}
+                {{ form_row(form.respuesta) }}
+
+                {{ form_widget(form.save) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{%endblock%}

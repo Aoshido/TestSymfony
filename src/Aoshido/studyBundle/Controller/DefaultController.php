@@ -37,13 +37,47 @@ class DefaultController extends Controller {
             return $this->redirect($this->generateUrl('preguntas_ABM'));
         }
 
-        return $this->render('AoshidostudyBundle:Default:abmPreguntas.html.twig', array(
+        return $this->render('AoshidostudyBundle:ABM:newForm.html.twig', array(
                     'form' => $form->createView(),
                     'paginas' => $pagination,
                     'cantidad' => $cant,
         ));
     }
+    
+    public function editPreguntasAction(Request $request,$id) {
 
+        $preguntas = $this->getDoctrine()
+                ->getRepository('AoshidostudyBundle:Pregunta')
+                ->findAll();
+
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($preguntas, $this->getRequest()->query->get('page', 1), 10);
+        $pagination->setPageRange(6);
+        
+        $cant = count($preguntas);
+
+        $pregunta = $this->getDoctrine()
+                ->getRepository('AoshidostudyBundle:Pregunta')
+                ->find($id);
+        
+        $form = $this->createFormPregunta($pregunta);
+        
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($pregunta);
+            $em->flush();
+            return $this->redirect($this->generateUrl('preguntas_ABM'));
+        }
+
+        return $this->render('AoshidostudyBundle:ABM:editForm.html.twig', array(
+                    'form' => $form->createView(),
+                    'paginas' => $pagination,
+                    'cantidad' => $cant,
+        ));
+    }
+    
     public function quizPreguntasAction(Request $request) {
 
         $resultado = NULL;
@@ -87,7 +121,7 @@ class DefaultController extends Controller {
             return $this->redirect($this->generateUrl('preguntas_QUIZ'));
         }
 
-        return $this->render('AoshidostudyBundle:Default:quizPreguntas.html.twig', array(
+        return $this->render('AoshidostudyBundle:Quiz:quizPreguntas.html.twig', array(
                     'form' => $form->createView(),
                     'pregunta' => $pregunta,
                         //'resultado' => $resultado,

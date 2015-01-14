@@ -7,11 +7,9 @@
 {% block content %}
     <div class="container">
         <div class="panel panel-primary">
-            {% for flashMessage in app.session.flashbag.get('notice') %}
-                <div class="alert alert-success">
-                    {{ flashMessage }}
-                </div>
-            {% endfor %}
+
+            {% include "AoshidostudyBundle::flashmessages.html.twig" %}
+            
             <div class="panel-heading">Preguntas Disponibles: {{ cantidad }}</div>
             <div class="panel-body">
                 <table class="table table-striped">
@@ -25,7 +23,7 @@
                     </tr>
                     {% for pregunta in paginas %}
                         <tr>
-                            <td class="col-md-1 text-center"><a href="{{path('aoshidostudy_index')}}"><div style="height:100%;width:100%">{{ pregunta.id }}</div></a></td>
+                            <td class="col-md-1 text-center"><a href="{{ path('preguntas_EDIT', { 'id': pregunta.id })}}"><div style="height:100%;width:100%">{{ pregunta.id }}</div></a></td>
                             <td class="col-md-7">{{ pregunta.contenido }}</td>
                             <td class="col-md-2">{{ pregunta.materia }}</td>
                             <td class="col-md-1">{{ pregunta.tema }}</td>
@@ -49,27 +47,9 @@
                 <div class="navigation">
                     {{ knp_pagination_render(paginas) }}
                 </div>
+                {% block form %}
 
-                <div class="panel panel-info">
-                    <div class="panel-heading">Agregar preguntas</div>
-                    <div class="panel-body">
-                        <div class="form-group">
-                            {{ form_start(form) }}
-                            {{ form_errors(form) }}
-
-                            <label for="contenido">{{ form_label(form.contenido) }} </label>
-                            {{ form_widget(form.contenido) }}
-                            {{ form_widget(form.vof) }}
-
-                            {{ form_row(form.materia) }}
-                            {{ form_row(form.tema) }}
-                            {{ form_row(form.respuesta) }}
-
-                            {{ form_widget(form.save) }}
-                            {{ form_end(form) }}
-                        </div>
-                    </div>
-                </div>
+                {%endblock%}  
             </div>
         </div>
     </div>
