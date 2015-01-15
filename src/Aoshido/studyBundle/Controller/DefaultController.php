@@ -126,9 +126,9 @@ class DefaultController extends Controller {
                     ->find($last_question['before']);
 
             if ($respuesta === $pregunta->getVof()) {
-                $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Correcta!');
+                $request->getSession()->getFlashBag()->add('success', 'La respuesta es Correcta!');
             } else {
-                $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Incorrecta!');
+                $request->getSession()->getFlashBag()->add('error', 'La respuesta es Incorrecta!');
             }
             return $this->redirect($this->generateUrl('preguntas_QUIZ'));
         }
