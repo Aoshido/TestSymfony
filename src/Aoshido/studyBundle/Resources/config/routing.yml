@@ -10,7 +10,7 @@ preguntas_EDIT:
     path:     /preguntas/abm/edit/{id}
     defaults: { _controller: AoshidostudyBundle:Default:editPreguntas }
 
-preguntas_EDIT:
+preguntas_DELETE:
     path:     /preguntas/abm/delete/{id}
     defaults: { _controller: AoshidostudyBundle:Default:deletePreguntas }
     

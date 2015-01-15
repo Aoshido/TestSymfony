@@ -17,7 +17,7 @@ class DefaultController extends Controller {
 
         $preguntas = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
-                ->findAll();
+                ->findBy(array('activo' => TRUE));
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($preguntas, $this->getRequest()->query->get('page', 1), 10);
@@ -84,7 +84,7 @@ class DefaultController extends Controller {
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->find($id);
         
-        //$pregunta->setAcitvo(FALSE);
+        $pregunta->setActivo(FALSE);
         $request->getSession()->getFlashBag()->add('warning', 'Pregunta nro ' . $id . ' eliminada!');
         
         $em = $this->getDoctrine()->getManager();
