@@ -22,12 +22,12 @@ class DefaultController extends Controller {
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($preguntas, $this->getRequest()->query->get('page', 1), 10);
         $pagination->setPageRange(6);
-        
+
         $cant = count($preguntas);
 
         $pregunta = new Pregunta();
         $form = $this->createFormPregunta($pregunta);
-        
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -43,8 +43,8 @@ class DefaultController extends Controller {
                     'cantidad' => $cant,
         ));
     }
-    
-    public function editPreguntasAction(Request $request,$id) {
+
+    public function editPreguntasAction(Request $request, $id) {
 
         $preguntas = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
@@ -53,15 +53,15 @@ class DefaultController extends Controller {
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($preguntas, $this->getRequest()->query->get('page', 1), 10);
         $pagination->setPageRange(6);
-        
+
         $cant = count($preguntas);
 
         $pregunta = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->find($id);
-        
+
         $form = $this->editFormPregunta($pregunta);
-        
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -77,7 +77,23 @@ class DefaultController extends Controller {
                     'cantidad' => $cant,
         ));
     }
-    
+
+    public function deletePreguntasAction(Request $request, $id) {
+
+        $pregunta = $this->getDoctrine()
+                ->getRepository('AoshidostudyBundle:Pregunta')
+                ->find($id);
+        
+        //$pregunta->setAcitvo(FALSE);
+        $request->getSession()->getFlashBag()->add('warning', 'Pregunta nro ' . $id . ' eliminada!');
+        
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($pregunta);
+        $em->flush();
+  
+        return $this->redirect($this->generateUrl('preguntas_ABM'));
+    }
+
     public function quizPreguntasAction(Request $request) {
 
         $resultado = NULL;
@@ -93,7 +109,7 @@ class DefaultController extends Controller {
                 ->find($id);
 
         $form = $this->createFormBuilder($respuesta)
-                ->add('before','hidden',array('data' => $id))
+                ->add('before', 'hidden', array('data' => $id))
                 ->add('Falso', 'submit', array('label' => 'Falso'))
                 ->add('Verdad', 'submit', array('label' => 'Verdadero'))
                 ->getForm();
@@ -104,11 +120,11 @@ class DefaultController extends Controller {
 
             $respuesta = $form->get('Verdad')->isClicked() ? TRUE : FALSE;
             $last_question = $form->getData();
-        
+
             $pregunta = $this->getDoctrine()
-                ->getRepository('AoshidostudyBundle:Pregunta')
-                ->find($last_question['before']);
-                    
+                    ->getRepository('AoshidostudyBundle:Pregunta')
+                    ->find($last_question['before']);
+
             if ($respuesta === $pregunta->getVof()) {
                 $request->getSession()->getFlashBag()->add('notice', 'La respuesta es Correcta!');
             } else {
@@ -120,17 +136,16 @@ class DefaultController extends Controller {
         return $this->render('AoshidostudyBundle:Quiz:quizPreguntas.html.twig', array(
                     'form' => $form->createView(),
                     'pregunta' => $pregunta,
-                        //'resultado' => $resultado,
         ));
     }
-    
-    private function createFormPregunta(Pregunta $pregunta){
-        
+
+    private function createFormPregunta(Pregunta $pregunta) {
+
         $form = $this->createFormBuilder($pregunta)
                 ->add('contenido', 'text')
-                ->add('materia','text')
-                ->add('tema','text')
-                ->add('respuesta','text')
+                ->add('materia', 'text')
+                ->add('tema', 'text')
+                ->add('respuesta', 'text')
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
                     'required' => true,
@@ -141,14 +156,14 @@ class DefaultController extends Controller {
                 ->getForm();
         return ($form);
     }
-    
-    private function editFormPregunta(Pregunta $pregunta){
-        
+
+    private function editFormPregunta(Pregunta $pregunta) {
+
         $form = $this->createFormBuilder($pregunta)
                 ->add('contenido', 'text')
-                ->add('materia','text')
-                ->add('tema','text')
-                ->add('respuesta','text')
+                ->add('materia', 'text')
+                ->add('tema', 'text')
+                ->add('respuesta', 'text')
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
                     'required' => true,

@@ -55,6 +55,13 @@ class Pregunta
      * @ORM\Column(name="Respuesta", type="text",options={"default":""})
      */
     private $respuesta ;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="activo", type="boolean")
+     */
+    private $activo ;
 
     /**
      * Get id

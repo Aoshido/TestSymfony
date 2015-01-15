@@ -14,16 +14,16 @@
             <div class="panel-body">
                 <table class="table table-striped">
                     <tr>
-                        <th class="col-md-5">Contenido</th>
+                        <th class="col-md-6">Contenido</th>
                         <th class="col-md-2">Materia</th>
                         <th class="col-md-1">Tema</th>
                         <th class="col-md-1">V o F</th>
                         <th class="col-md-1">RTA</th>
-                        <th class="col-md-2">&nbsp</th>
+                        <th class="col-md-1">&nbsp</th>
                     </tr>
                     {% for pregunta in paginas %}
                         <tr>
-                            <td class="col-md-5">{{ pregunta.contenido }}</td>
+                            <td class="col-md-6">{{ pregunta.contenido }}</td>
                             <td class="col-md-2">{{ pregunta.materia }}</td>
                             <td class="col-md-1">{{ pregunta.tema }}</td>
                             <td class="col-md-1">
@@ -40,18 +40,17 @@
                                     <span class="glyphicon glyphicon glyphicon-exclamation-sign red" aria-hidden="true"></span>
                                 {% endif %}
                             </td>
-                            <td class="col-md-2">
+                            <td class="col-md-1">
                                 <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                    <button type="button" class="btn btn-success" aria-label="Left Align">
+                                    <button type="button" class="btn btn-success" aria-label="Left Align" onclick="location.href = '{{ url('preguntas_EDIT',{ 'id': pregunta.id})}}';">
                                         <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                     </button>    
-                                    <button type="button" class="btn btn-danger" aria-label="Left Align">
+                                    <button type="button" class="btn btn-danger" aria-label="Left Align" onclick="location.href = '{{ url('preguntas_DELETE',{ 'id': pregunta.id})}}';">
                                         <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>
                                     </button>    
                                    
                                 </div>
-                                 <a href ="{{ path('preguntas_EDIT', { 'id': pregunta.id })}}">
-                                    </a>
+                                 <a href ="{{ path('preguntas_EDIT', { 'id': pregunta.id })}}"></a>
                             </td>
                         </tr>
                     {% endfor %}
