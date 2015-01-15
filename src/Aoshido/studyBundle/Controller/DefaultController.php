@@ -48,7 +48,7 @@ class DefaultController extends Controller {
 
         $preguntas = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
-                ->findAll();
+                ->findBy(array('activo' => TRUE));
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($preguntas, $this->getRequest()->query->get('page', 1), 10);
@@ -101,7 +101,8 @@ class DefaultController extends Controller {
 
         $preguntas = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
-                ->findAll();
+                ->findBy(array('activo' => TRUE));
+        
         $id = rand(1, count($preguntas));
 
         $pregunta = $this->getDoctrine()
