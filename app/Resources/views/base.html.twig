@@ -24,6 +24,12 @@
     <body background="{{ asset_url }}">
         {% endimage %}
     {% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+    {% block javascripts %}
+		<script src="{{ asset('js/jquery.js') }}"></script>
+		<!-- Include all JavaScripts, compiled by Assetic -->
+		<script type="text/javascript" src="{{ asset('bundles/bmatznerjqueryui/js/minified/jquery-ui.min.js') }}"></script>
+		
+		<script src="{{ asset('js/bootstrap.js') }}"></script>
+    {% endblock %}
 </body>
 </html>

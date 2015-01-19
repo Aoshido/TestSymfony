@@ -38,6 +38,11 @@ assetic:
 braincrafted_bootstrap:
     less_filter: less
 
+# Si quremos usar el Parameters.yml
+#        less:
+#            node: "%nodejs%"
+#            node_paths: ["%nodejs_paths%"]
+#
 
 
 # Doctrine Configuration
