@@ -6,7 +6,7 @@
 
 {% block content %}
 
-{% include "AoshidostudyBundle::flashmessages.html.twig" %}
+    {% include "AoshidostudyBundle::flashmessages.html.twig" %}
 
     <div class="container">
         <div class="panel panel-primary">
@@ -18,7 +18,9 @@
                     <div class="panel-heading">Pregunta numero {{ pregunta.id }}</div>
                     <div class="panel-body">
                         <blockquote>
-                            {{ pregunta.contenido }}
+                            <span>
+                                {{ pregunta.contenido }}
+                            </span>
                         </blockquote>
 
                         {{ form_start(form) }}

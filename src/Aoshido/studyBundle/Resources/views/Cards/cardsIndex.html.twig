@@ -1,0 +1,27 @@
+{% extends '::default/layout.html.twig' %}
+
+{% block title %}Quiz Time!{% endblock %}
+
+{% block cards %}class="active"{% endblock %}
+
+{% block content %}
+
+    {% include "AoshidostudyBundle::flashmessages.html.twig" %}
+
+    <div class="jumbotron">
+        <div class="container">
+            {% for pregunta in preguntas %}
+                <div class="flip-container col-md-2" ontouchstart="this.classList.toggle('hover');">
+                    <div class="flipper">
+                        <div class="panel front">
+                            {{ pregunta.contenido }}
+                        </div>
+                        <div class="panel back">
+                            {{ pregunta.respuesta }}
+                        </div>
+                    </div>
+                </div>                        
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

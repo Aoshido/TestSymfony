@@ -17,3 +17,7 @@ preguntas_DELETE:
 preguntas_QUIZ:
     path:     /preguntas/quiz
     defaults: { _controller: AoshidostudyBundle:Default:quizPreguntas }
+
+preguntas_CARDS:
+    path:     /preguntas/cards
+    defaults: { _controller: AoshidostudyBundle:Default:cardsIndex }

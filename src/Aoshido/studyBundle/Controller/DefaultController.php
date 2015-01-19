@@ -83,14 +83,14 @@ class DefaultController extends Controller {
         $pregunta = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->find($id);
-        
+
         $pregunta->setActivo(FALSE);
         $request->getSession()->getFlashBag()->add('warning', 'Pregunta nro ' . $id . ' eliminada!');
-        
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($pregunta);
         $em->flush();
-  
+
         return $this->redirect($this->generateUrl('preguntas_ABM'));
     }
 
@@ -102,7 +102,7 @@ class DefaultController extends Controller {
         $preguntas = $this->getDoctrine()
                 ->getRepository('AoshidostudyBundle:Pregunta')
                 ->findBy(array('activo' => TRUE));
-        
+
         $id = rand(1, count($preguntas));
 
         $pregunta = $this->getDoctrine()
@@ -174,6 +174,18 @@ class DefaultController extends Controller {
                 ->add('save', 'submit', array('label' => 'Editar Pregunta'))
                 ->getForm();
         return ($form);
+    }
+
+    public function cardsIndexAction(Request $request) {
+
+        $preguntas = $this->getDoctrine()
+                ->getRepository('AoshidostudyBundle:Pregunta')
+                ->findBy(array('activo' => TRUE));
+
+
+        return $this->render('AoshidostudyBundle:Cards:cardsIndex.html.twig', array(
+                    'preguntas' => $preguntas,
+        ));
     }
 
 }
