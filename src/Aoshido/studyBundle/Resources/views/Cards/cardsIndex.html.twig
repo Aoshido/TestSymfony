@@ -13,32 +13,50 @@
         <table class="table">
             <tr>
                 {% for pregunta in preguntas %}
-                    <td class="col-md-2">
+                    <td class="col-md-1">
                         <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                             <div class="flipper">
-                                <div class="panel front card_front">
-                                    {{ pregunta.contenido }}
+                                <div class="panel front card_back">
+                                    <div class="card_back_text">
+                                        {{ pregunta.contenido }}
+                                    </div>
                                 </div>
-                                <div class="panel back card_back">
-                                    <p>
-                                        {% if (pregunta.vof) %}
-                                            Verdadero
-                                        {% else %}
-                                            Falso
-                                        {% endif %}
-                                    </p>
-                                    <p>{{ pregunta.respuesta }}</p>
-                                </div>
-                            </div>
-                        </div>                        
-                    </td>
-                    {% if ((loop.index % 5) == 0) %}
-                    </tr>
-                    <tr>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-        </table>
-    </div>
+                                {% if ((loop.index % 4) == 0) %}
+                                    <div class="panel back card_front card_club ">
+                                    {% endif %}
 
-{% endblock %}
+                                    {% if ((loop.index % 4) == 1) %}
+                                        <div class="panel back card_front card_diam ">
+                                        {% endif %}
+
+                                        {% if ((loop.index % 4) == 2) %}
+                                            <div class="panel back card_front card_heart ">
+                                            {% endif %}
+
+                                            {% if ((loop.index % 4) == 3) %}
+                                                <div class="panel back card_front card_spade ">
+                                                {% endif %}
+                                                <p>
+                                                    {% if (pregunta.vof) %}
+                                                        Verdadero
+                                                    {% else %}
+                                                        Falso
+                                                    {% endif %}
+                                                </p>
+                                                <div class="card_answer">
+                                                    <p>{{ pregunta.respuesta }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                        
+                                    </td>
+                                    {% if ((loop.index % 4) == 0) %}
+                                        </tr>
+                                        <tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tr>
+                                </table>
+                            </div>
+
+                        {% endblock %}

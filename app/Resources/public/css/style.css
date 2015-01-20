@@ -8,23 +8,52 @@
     color: dodgerblue;
 }
 
-.card_front{
-    padding-top: 30%;
+.card_back{
     text-align: center;
-    background-image: url("/img/card_background.jpg");
+    background-image: url("/img/card_background3.jpg");
     background-position-x: 0px;
     background-position-y: 0px;
-    color: white;
-    font-weight: bold;
+    
+    border-radius: 5%;
 }
 
-.card_back{
-    background-color: crimson;
+.card_back_text{
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 75px;
+    left: 20px;
+    width: 160px;
+    height: 100px;
+}
+
+.card_front{
     padding-top: 5%;
     text-align: center;
     font-weight: bold;
+    border-radius: 5%;
 }
 
+.card_club{
+    background-image: url("/img/card_frontCLUB.jpg");
+}
+.card_heart{
+    background-image: url("/img/card_frontHERT.jpg");
+}
+.card_diam{
+    background-image: url("/img/card_frontDIAM.jpg");
+}
+.card_spade{
+    background-image: url("/img/card_frontSPAD.jpg");
+}
+
+.card_answer{
+    position: absolute;
+    top: 75px;
+    left: 20px;
+    width: 160px;
+    height: 100px;
+}
 /*FLIP CSS*/
 /*http://davidwalsh.name/css-flip*/
 
@@ -39,7 +68,7 @@
 
 .flip-container, .front, .back {
     width: 200px;
-    height: 200px;
+    height: 300px;
 }
 
 /* flip speed goes here */
