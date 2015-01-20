@@ -9,11 +9,20 @@
 }
 
 .card_front{
-    background-color: white;
+    padding-top: 30%;
+    text-align: center;
+    background-image: url("/img/card_background.jpg");
+    background-position-x: 0px;
+    background-position-y: 0px;
+    color: white;
+    font-weight: bold;
 }
 
 .card_back{
-    background-color: black;
+    background-color: crimson;
+    padding-top: 5%;
+    text-align: center;
+    font-weight: bold;
 }
 
 /*FLIP CSS*/

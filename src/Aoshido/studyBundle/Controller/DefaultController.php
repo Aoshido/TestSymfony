@@ -31,6 +31,7 @@ class DefaultController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $pregunta->setActivo(TRUE);
             $em = $this->getDoctrine()->getManager();
             $em->persist($pregunta);
             $em->flush();
@@ -65,6 +66,7 @@ class DefaultController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $pregunta->setActivo(TRUE);
             $em = $this->getDoctrine()->getManager();
             $em->persist($pregunta);
             $em->flush();

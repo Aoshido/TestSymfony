@@ -8,20 +8,37 @@
 
     {% include "AoshidostudyBundle::flashmessages.html.twig" %}
 
-    <div class="jumbotron">
-        <div class="container">
-            {% for pregunta in preguntas %}
-                <div class="flip-container col-md-2" ontouchstart="this.classList.toggle('hover');">
-                    <div class="flipper">
-                        <div class="panel front">
-                            {{ pregunta.contenido }}
-                        </div>
-                        <div class="panel back">
-                            {{ pregunta.respuesta }}
-                        </div>
-                    </div>
-                </div>                        
-            {% endfor %}
-        </div>
+
+    <div class="container">
+        <table class="table">
+            <tr>
+                {% for pregunta in preguntas %}
+                    <td class="col-md-2">
+                        <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flipper">
+                                <div class="panel front card_front">
+                                    {{ pregunta.contenido }}
+                                </div>
+                                <div class="panel back card_back">
+                                    <p>
+                                        {% if (pregunta.vof) %}
+                                            Verdadero
+                                        {% else %}
+                                            Falso
+                                        {% endif %}
+                                    </p>
+                                    <p>{{ pregunta.respuesta }}</p>
+                                </div>
+                            </div>
+                        </div>                        
+                    </td>
+                    {% if ((loop.index % 5) == 0) %}
+                    </tr>
+                    <tr>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </table>
     </div>
+
 {% endblock %}
