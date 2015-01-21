@@ -49,7 +49,12 @@ class Choice
      */
     private $activo;
 
-
+    /**
+     * @ORM\ManyToOne(targetEntity="Pregunta", inversedBy="choices")
+     * @ORM\JoinColumn(name="pregunta_id", referencedColumnName="id")
+     */
+    protected $pregunta;
+    
     /**
      * Get id
      *
@@ -150,5 +155,28 @@ class Choice
     public function getActivo()
     {
         return $this->activo;
+    }
+
+    /**
+     * Set pregunta
+     *
+     * @param \Aoshido\studyBundle\Entity\Pregunta $pregunta
+     * @return Choice
+     */
+    public function setPregunta(\Aoshido\studyBundle\Entity\Pregunta $pregunta = null)
+    {
+        $this->pregunta = $pregunta;
+
+        return $this;
+    }
+
+    /**
+     * Get pregunta
+     *
+     * @return \Aoshido\studyBundle\Entity\Pregunta 
+     */
+    public function getPregunta()
+    {
+        return $this->pregunta;
     }
 }

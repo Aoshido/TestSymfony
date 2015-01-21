@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Pregunta
-{
+class Pregunta {
+
     /**
      * @var integer
      *
@@ -40,36 +40,46 @@ class Pregunta
      *
      * @ORM\Column(name="Materia", type="text",options={"default":"General"})
      */
-    private $materia ;
-    
+    private $materia;
+
     /**
      * @var string
      *
      * @ORM\Column(name="Tema", type="text",options={"default":"General"})
      */
-    private $tema ;
-    
+    private $tema;
+
     /**
      * @var string
      *
      * @ORM\Column(name="Respuesta", type="text",options={"default":""})
      */
-    private $respuesta ;
-    
+    private $respuesta;
+
     /**
      * @var boolean
      *
      * @ORM\Column(name="activo", type="boolean",options={"default":"TRUE"})
      */
-    private $activo ;
+    private $activo;
+
+    /**
+     * 
+     *
+     * @ORM\OneToMany(targetEntity="Choice", mappedBy="pregunta")
+     */
+    private $choices;
+
+    public function __construct() {
+        $this->choices = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -79,8 +89,7 @@ class Pregunta
      * @param string $contenido
      * @return Pregunta
      */
-    public function setContenido($contenido)
-    {
+    public function setContenido($contenido) {
         $this->contenido = $contenido;
 
         return $this;
@@ -91,8 +100,7 @@ class Pregunta
      *
      * @return string 
      */
-    public function getContenido()
-    {
+    public function getContenido() {
         return $this->contenido;
     }
 
@@ -102,8 +110,7 @@ class Pregunta
      * @param boolean $vof
      * @return Pregunta
      */
-    public function setVof($vof)
-    {
+    public function setVof($vof) {
         $this->vof = $vof;
 
         return $this;
@@ -114,8 +121,7 @@ class Pregunta
      *
      * @return boolean 
      */
-    public function getVof()
-    {
+    public function getVof() {
         return $this->vof;
     }
 
@@ -125,8 +131,7 @@ class Pregunta
      * @param string $materia
      * @return Pregunta
      */
-    public function setMateria($materia)
-    {
+    public function setMateria($materia) {
         $this->materia = $materia;
 
         return $this;
@@ -137,8 +142,7 @@ class Pregunta
      *
      * @return string 
      */
-    public function getMateria()
-    {
+    public function getMateria() {
         return $this->materia;
     }
 
@@ -148,8 +152,7 @@ class Pregunta
      * @param string $tema
      * @return Pregunta
      */
-    public function setTema($tema)
-    {
+    public function setTema($tema) {
         $this->tema = $tema;
 
         return $this;
@@ -160,8 +163,7 @@ class Pregunta
      *
      * @return string 
      */
-    public function getTema()
-    {
+    public function getTema() {
         return $this->tema;
     }
 
@@ -171,8 +173,7 @@ class Pregunta
      * @param string $respuesta
      * @return Pregunta
      */
-    public function setRespuesta($respuesta)
-    {
+    public function setRespuesta($respuesta) {
         $this->respuesta = $respuesta;
 
         return $this;
@@ -183,8 +184,7 @@ class Pregunta
      *
      * @return string 
      */
-    public function getRespuesta()
-    {
+    public function getRespuesta() {
         return $this->respuesta;
     }
 
@@ -194,8 +194,7 @@ class Pregunta
      * @param boolean $activo
      * @return Pregunta
      */
-    public function setActivo($activo)
-    {
+    public function setActivo($activo) {
         $this->activo = $activo;
 
         return $this;
@@ -206,8 +205,41 @@ class Pregunta
      *
      * @return boolean 
      */
-    public function getActivo()
-    {
+    public function getActivo() {
         return $this->activo;
+    }
+
+
+    /**
+     * Add choices
+     *
+     * @param \Aoshido\studyBundle\Entity\Choice $choices
+     * @return Pregunta
+     */
+    public function addChoice(\Aoshido\studyBundle\Entity\Choice $choices)
+    {
+        $this->choices[] = $choices;
+
+        return $this;
+    }
+
+    /**
+     * Remove choices
+     *
+     * @param \Aoshido\studyBundle\Entity\Choice $choices
+     */
+    public function removeChoice(\Aoshido\studyBundle\Entity\Choice $choices)
+    {
+        $this->choices->removeElement($choices);
+    }
+
+    /**
+     * Get choices
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChoices()
+    {
+        return $this->choices;
     }
 }
