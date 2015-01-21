@@ -4,6 +4,9 @@ namespace Aoshido\studyBundle\Controller;
 
 use Aoshido\studyBundle\Entity\Choice;
 use Aoshido\studyBundle\Entity\Pregunta;
+
+use Aoshido\studyBundle\form\PreguntaType;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,7 +16,7 @@ class DefaultController extends Controller {
     public function indexAction() {
         return $this->render('AoshidostudyBundle::index.html.twig');
     }
-    
+
     public function bioAction() {
         return $this->render('AoshidostudyBundle::bio.html.twig');
     }
@@ -31,18 +34,16 @@ class DefaultController extends Controller {
         $cant = count($preguntas);
 
         $pregunta = new Pregunta();
-        $form = $this->createFormPregunta($pregunta);
+        //$form = $this->createFormPregunta($pregunta);
+
+        $form = $this->createForm(new PreguntaType(), $pregunta, array(
+            'action' => $this->generateUrl('preguntas_ABM'),
+            'method' => 'POST',
+        ));
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $choice = new Choice();
-            
-            $choice->setCorrecto($pregunta->getVof());
-            $choice->setContenido($pregunta->getRespuesta());
-            $choice->setActivo(TRUE);
-            
-            $pregunta->addChoice($choice);
             $pregunta->setActivo(TRUE);
             $em = $this->getDoctrine()->getManager();
             $em->persist($pregunta);

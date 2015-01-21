@@ -29,12 +29,6 @@ class Materia {
      */
     private $nombre;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idCarrera", type="integer")
-     */
-    private $idCarrera;
 
     /**
      * @var integer
@@ -87,27 +81,6 @@ class Materia {
      */
     public function getNombre() {
         return $this->nombre;
-    }
-
-    /**
-     * Set idCarrera
-     *
-     * @param integer $idCarrera
-     * @return Materia
-     */
-    public function setIdCarrera($idCarrera) {
-        $this->idCarrera = $idCarrera;
-
-        return $this;
-    }
-
-    /**
-     * Get idCarrera
-     *
-     * @return integer 
-     */
-    public function getIdCarrera() {
-        return $this->idCarrera;
     }
 
     /**

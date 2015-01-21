@@ -1,21 +1,63 @@
 {% extends "AoshidostudyBundle:ABM:abmPreguntas.html.twig" %}
 {% block form %}
+    {% set expanded = true %}
     <div class="panel panel-info">
-        <div class="panel-heading">Editar preguntas</div>
+        <div class="panel-heading">Agregar preguntas</div>
         <div class="panel-body">
             <div class="form-group">
                 {{ form_start(form) }}
-                {{ form_errors(form) }}
-
-                <label for="contenido">{{ form_label(form.contenido) }} </label>
-                {{ form_widget(form.contenido) }}
-                {{ form_widget(form.vof) }}
-
+                {{ form_row(form.contenido) }}
                 {{ form_row(form.respuesta) }}
-
-                {{ form_widget(form.save) }}
+                <ul class="choice" data-prototype="{{ form_widget(form.choices.vars.prototype)|e }}">
+                </ul>
                 {{ form_end(form) }}
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+        var $collectionHolder;
+
+        // setup an "add a tag" link
+        var $addTagLink = $('<a href="#" class="add_tag_link">Add a tag</a>');
+        var $newLinkLi = $('<li></li>').append($addTagLink);
+        jQuery(document).ready(function () {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.choice');
+
+            // add the "add a tag" anchor and li to the tags ul
+            $collectionHolder.append($newLinkLi);
+
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+            $addTagLink.on('click', function (e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+
+                // add a new tag form (see next code block)
+                addTagForm($collectionHolder, $newLinkLi);
+            });
+        });
+
+        function addTagForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+
+            // get the new index
+            var index = $collectionHolder.data('index');
+
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+        }
+    </script>
 {%endblock%}

@@ -2,6 +2,7 @@
 
 namespace Aoshido\studyBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -43,7 +44,7 @@ class Tema {
     protected $materia;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Pregunta", mappedBy="temas")
+     * @ORM\ManyToMany(targetEntity="Pregunta", mappedBy="temas",cascade={"persist"})
      **/
     private $preguntas;
 

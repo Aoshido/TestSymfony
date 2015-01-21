@@ -2,6 +2,7 @@
 
 namespace Aoshido\studyBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -57,8 +58,8 @@ class Pregunta {
     private $temas;
     
     /**
-     * 
-     *
+     * @Assert\Type(type="Aoshido\studyBundle\Entity\Choice")
+     * @Assert\Valid()
      * @ORM\OneToMany(targetEntity="Choice", mappedBy="pregunta",cascade={"persist"})
      */
     private $choices;
