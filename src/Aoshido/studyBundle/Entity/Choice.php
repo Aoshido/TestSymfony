@@ -44,7 +44,7 @@ class Choice
 
     /**
      * @ORM\ManyToOne(targetEntity="Pregunta", inversedBy="choices")
-     * @ORM\JoinColumn(name="pregunta_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="idPregunta", referencedColumnName="id")
      */
     protected $pregunta;
     
