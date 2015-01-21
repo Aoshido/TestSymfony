@@ -1,6 +1,7 @@
 <?php
 
 namespace Aoshido\studyBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Tema
-{
+class Tema {
+
     /**
      * @var integer
      *
@@ -20,13 +21,6 @@ class Tema
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="idMateria", type="integer")
-     */
-    private $idMateria;
 
     /**
      * @var string
@@ -42,38 +36,28 @@ class Tema
      */
     private $activo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Materia", inversedBy="temas")
+     * @ORM\JoinColumn(name="idMateria", referencedColumnName="id")
+     */
+    protected $materia;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Pregunta", mappedBy="temas")
+     **/
+    private $preguntas;
+
+    public function __construct() {
+        $this->preguntas = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
-    }
-
-    /**
-     * Set idMateria
-     *
-     * @param integer $idMateria
-     * @return Tema
-     */
-    public function setIdMateria($idMateria)
-    {
-        $this->idMateria = $idMateria;
-
-        return $this;
-    }
-
-    /**
-     * Get idMateria
-     *
-     * @return integer 
-     */
-    public function getIdMateria()
-    {
-        return $this->idMateria;
     }
 
     /**
@@ -82,8 +66,7 @@ class Tema
      * @param string $nombre
      * @return Tema
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
 
         return $this;
@@ -94,8 +77,7 @@ class Tema
      *
      * @return string 
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -105,8 +87,7 @@ class Tema
      * @param boolean $activo
      * @return Tema
      */
-    public function setActivo($activo)
-    {
+    public function setActivo($activo) {
         $this->activo = $activo;
 
         return $this;
@@ -117,8 +98,64 @@ class Tema
      *
      * @return boolean 
      */
-    public function getActivo()
-    {
+    public function getActivo() {
         return $this->activo;
+    }
+
+
+    /**
+     * Set materia
+     *
+     * @param \Aoshido\studyBundle\Entity\Materia $materia
+     * @return Tema
+     */
+    public function setMateria(\Aoshido\studyBundle\Entity\Materia $materia = null)
+    {
+        $this->materia = $materia;
+
+        return $this;
+    }
+
+    /**
+     * Get materia
+     *
+     * @return \Aoshido\studyBundle\Entity\Materia 
+     */
+    public function getMateria()
+    {
+        return $this->materia;
+    }
+
+    /**
+     * Add preguntas
+     *
+     * @param \Aoshido\studyBundle\Entity\Pregunta $preguntas
+     * @return Tema
+     */
+    public function addPregunta(\Aoshido\studyBundle\Entity\Pregunta $preguntas)
+    {
+        $this->preguntas[] = $preguntas;
+
+        return $this;
+    }
+
+    /**
+     * Remove preguntas
+     *
+     * @param \Aoshido\studyBundle\Entity\Pregunta $preguntas
+     */
+    public function removePregunta(\Aoshido\studyBundle\Entity\Pregunta $preguntas)
+    {
+        $this->preguntas->removeElement($preguntas);
+    }
+
+    /**
+     * Get preguntas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPreguntas()
+    {
+        return $this->preguntas;
     }
 }

@@ -3,6 +3,7 @@
 namespace Aoshido\studyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Materia
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Materia
-{
+class Materia {
+
     /**
      * @var integer
      *
@@ -49,14 +50,21 @@ class Materia
      */
     private $activo;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Tema", mappedBy="materia",cascade={"persist"})
+     */
+    protected $temas;
+
+    public function __construct() {
+        $this->temas = new ArrayCollection();
+    }
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -66,8 +74,7 @@ class Materia
      * @param string $nombre
      * @return Materia
      */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
 
         return $this;
@@ -78,8 +85,7 @@ class Materia
      *
      * @return string 
      */
-    public function getNombre()
-    {
+    public function getNombre() {
         return $this->nombre;
     }
 
@@ -89,8 +95,7 @@ class Materia
      * @param integer $idCarrera
      * @return Materia
      */
-    public function setIdCarrera($idCarrera)
-    {
+    public function setIdCarrera($idCarrera) {
         $this->idCarrera = $idCarrera;
 
         return $this;
@@ -101,8 +106,7 @@ class Materia
      *
      * @return integer 
      */
-    public function getIdCarrera()
-    {
+    public function getIdCarrera() {
         return $this->idCarrera;
     }
 
@@ -112,8 +116,7 @@ class Materia
      * @param integer $anio
      * @return Materia
      */
-    public function setAnio($anio)
-    {
+    public function setAnio($anio) {
         $this->anio = $anio;
 
         return $this;
@@ -124,8 +127,7 @@ class Materia
      *
      * @return integer 
      */
-    public function getAnio()
-    {
+    public function getAnio() {
         return $this->anio;
     }
 
@@ -135,8 +137,7 @@ class Materia
      * @param boolean $activo
      * @return Materia
      */
-    public function setActivo($activo)
-    {
+    public function setActivo($activo) {
         $this->activo = $activo;
 
         return $this;
@@ -147,8 +148,41 @@ class Materia
      *
      * @return boolean 
      */
-    public function getActivo()
-    {
+    public function getActivo() {
         return $this->activo;
+    }
+
+
+    /**
+     * Add temas
+     *
+     * @param \Aoshido\studyBundle\Entity\Tema $temas
+     * @return Materia
+     */
+    public function addTema(\Aoshido\studyBundle\Entity\Tema $temas)
+    {
+        $this->temas[] = $temas;
+
+        return $this;
+    }
+
+    /**
+     * Remove temas
+     *
+     * @param \Aoshido\studyBundle\Entity\Tema $temas
+     */
+    public function removeTema(\Aoshido\studyBundle\Entity\Tema $temas)
+    {
+        $this->temas->removeElement($temas);
+    }
+
+    /**
+     * Get temas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTemas()
+    {
+        return $this->temas;
     }
 }

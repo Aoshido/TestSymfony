@@ -39,20 +39,6 @@ class Pregunta {
     /**
      * @var string
      *
-     * @ORM\Column(name="Materia", type="text",options={"default":"General"})
-     */
-    private $materia;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Tema", type="text",options={"default":"General"})
-     */
-    private $tema;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="Respuesta", type="text",options={"default":""})
      */
     private $respuesta;
@@ -65,6 +51,12 @@ class Pregunta {
     private $activo;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Tema", inversedBy="preguntas")
+     * @ORM\JoinTable(name="Preguntas_Temas")
+     **/
+    private $temas;
+    
+    /**
      * 
      *
      * @ORM\OneToMany(targetEntity="Choice", mappedBy="pregunta",cascade={"persist"})
@@ -72,6 +64,7 @@ class Pregunta {
     private $choices;
 
     public function __construct() {
+        $this->temas = new ArrayCollection();
         $this->choices = new ArrayCollection();
     }
 
@@ -124,48 +117,6 @@ class Pregunta {
      */
     public function getVof() {
         return $this->vof;
-    }
-
-    /**
-     * Set materia
-     *
-     * @param string $materia
-     * @return Pregunta
-     */
-    public function setMateria($materia) {
-        $this->materia = $materia;
-
-        return $this;
-    }
-
-    /**
-     * Get materia
-     *
-     * @return string 
-     */
-    public function getMateria() {
-        return $this->materia;
-    }
-
-    /**
-     * Set tema
-     *
-     * @param string $tema
-     * @return Pregunta
-     */
-    public function setTema($tema) {
-        $this->tema = $tema;
-
-        return $this;
-    }
-
-    /**
-     * Get tema
-     *
-     * @return string 
-     */
-    public function getTema() {
-        return $this->tema;
     }
 
     /**
@@ -242,5 +193,38 @@ class Pregunta {
     public function getChoices()
     {
         return $this->choices;
+    }
+
+    /**
+     * Add temas
+     *
+     * @param \Aoshido\studyBundle\Entity\Tema $temas
+     * @return Pregunta
+     */
+    public function addTema(\Aoshido\studyBundle\Entity\Tema $temas)
+    {
+        $this->temas[] = $temas;
+
+        return $this;
+    }
+
+    /**
+     * Remove temas
+     *
+     * @param \Aoshido\studyBundle\Entity\Tema $temas
+     */
+    public function removeTema(\Aoshido\studyBundle\Entity\Tema $temas)
+    {
+        $this->temas->removeElement($temas);
+    }
+
+    /**
+     * Get temas
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTemas()
+    {
+        return $this->temas;
     }
 }

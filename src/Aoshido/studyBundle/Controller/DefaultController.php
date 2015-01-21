@@ -158,8 +158,6 @@ class DefaultController extends Controller {
 
         $form = $this->createFormBuilder($pregunta)
                 ->add('contenido', 'text')
-                ->add('materia', 'text')
-                ->add('tema', 'text')
                 ->add('respuesta', 'text')
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
@@ -176,8 +174,6 @@ class DefaultController extends Controller {
 
         $form = $this->createFormBuilder($pregunta)
                 ->add('contenido', 'text')
-                ->add('materia', 'text')
-                ->add('tema', 'text')
                 ->add('respuesta', 'text')
                 ->add('vof', 'choice', array(
                     'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),

@@ -22,8 +22,6 @@
                     {% for pregunta in paginas %}
                         <tr>
                             <td class="col-md-6">{{ pregunta.contenido }}</td>
-                            <td class="col-md-2">{{ pregunta.materia }}</td>
-                            <td class="col-md-1">{{ pregunta.tema }}</td>
                             <td class="col-md-1">
                                 {% if (pregunta.vof == 1) %} 
                                     <span class="glyphicon glyphicon-ok-circle green" aria-hidden="true"> TRUE</span>
