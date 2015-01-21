@@ -1,6 +1,10 @@
 aoshidostudy_index:
     path:     /
     defaults: { _controller: AoshidostudyBundle:Default:index }
+
+aoshidostudy_BIO:
+    path:     /
+    defaults: { _controller: AoshidostudyBundle:Default:bio }
     
 preguntas_ABM:
     path:     /preguntas/abm

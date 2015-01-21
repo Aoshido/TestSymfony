@@ -31,6 +31,12 @@
                     </a>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li {% block bio %} {% endblock %} ><a href="{{path('aoshidostudy_BIO')}}">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Bio/Credits
+                    </a>
+                </li>
+            </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

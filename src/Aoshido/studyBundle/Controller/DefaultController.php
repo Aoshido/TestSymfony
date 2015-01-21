@@ -12,6 +12,10 @@ class DefaultController extends Controller {
     public function indexAction() {
         return $this->render('AoshidostudyBundle::index.html.twig');
     }
+    
+    public function bioAction() {
+        return $this->render('AoshidostudyBundle::bio.html.twig');
+    }
 
     public function abmPreguntasAction(Request $request) {
 
