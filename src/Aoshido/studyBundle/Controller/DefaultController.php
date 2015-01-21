@@ -36,17 +36,14 @@ class DefaultController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            
             $choice = new Choice();
-            $choice->setActivo(TRUE);
-            $choice->setCorrecto($pregunta->getVof());
-            $choice->setContenido($pregunta->getContenido());
             
+            $choice->setCorrecto($pregunta->getVof());
+            $choice->setContenido($pregunta->getRespuesta());
+            $choice->setActivo(TRUE);
             
             $pregunta->addChoice($choice);
-            
             $pregunta->setActivo(TRUE);
-            
             $em = $this->getDoctrine()->getManager();
             $em->persist($pregunta);
             $em->flush();

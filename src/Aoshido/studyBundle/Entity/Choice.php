@@ -58,7 +58,6 @@ class Choice
         return $this->id;
     }
 
-
     /**
      * Set contenido
      *
