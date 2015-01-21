@@ -3,6 +3,8 @@
 namespace Aoshido\studyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Pregunta
@@ -66,7 +68,7 @@ class Pregunta {
     /**
      * 
      *
-     * @ORM\OneToMany(targetEntity="Choice", mappedBy="pregunta")
+     * @ORM\OneToMany(targetEntity="Choice", mappedBy="pregunta",cascade={"persist"})
      */
     private $choices;
 

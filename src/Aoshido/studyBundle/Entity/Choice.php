@@ -22,13 +22,6 @@ class Choice
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="idPregunta", type="integer")
-     */
-    private $idPregunta;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="contenido", type="string", length=1000)
@@ -65,28 +58,6 @@ class Choice
         return $this->id;
     }
 
-    /**
-     * Set idPregunta
-     *
-     * @param integer $idPregunta
-     * @return Choice
-     */
-    public function setIdPregunta($idPregunta)
-    {
-        $this->idPregunta = $idPregunta;
-
-        return $this;
-    }
-
-    /**
-     * Get idPregunta
-     *
-     * @return integer 
-     */
-    public function getIdPregunta()
-    {
-        return $this->idPregunta;
-    }
 
     /**
      * Set contenido

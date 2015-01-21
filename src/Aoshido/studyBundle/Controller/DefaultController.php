@@ -2,6 +2,7 @@
 
 namespace Aoshido\studyBundle\Controller;
 
+use Aoshido\studyBundle\Entity\Choice;
 use Aoshido\studyBundle\Entity\Pregunta;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -35,7 +36,17 @@ class DefaultController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            
+            $choice = new Choice();
+            $choice->setActivo(TRUE);
+            $choice->setCorrecto($pregunta->getVof());
+            $choice->setContenido($pregunta->getContenido());
+            
+            
+            $pregunta->addChoice($choice);
+            
             $pregunta->setActivo(TRUE);
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($pregunta);
             $em->flush();
