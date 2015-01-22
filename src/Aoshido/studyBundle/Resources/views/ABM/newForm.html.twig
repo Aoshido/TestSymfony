@@ -1,6 +1,5 @@
 {% extends "AoshidostudyBundle:ABM:abmPreguntas.html.twig" %}
 {% block form %}
-    {% set expanded = true %}
     <div class="panel panel-info">
         <div class="panel-heading">Agregar preguntas</div>
         <div class="panel-body">
@@ -9,7 +8,13 @@
                 {{ form_row(form.contenido) }}
                 {{ form_row(form.respuesta) }}
                 <ul class="choice" data-prototype="{{ form_widget(form.choices.vars.prototype)|e }}">
+                    {% for choice in form.choices %}
+                        <li>
+                            {{ form_row(choice) }}
+                        </li>
+                    {% endfor %}
                 </ul>
+                <a href="#" id="add-another-choice">Add another choice</a>
                 {{ form_end(form) }}
             </div>
         </div>
