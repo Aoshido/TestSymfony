@@ -14,6 +14,3 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    use_assetic_controller: true
-#    nodejs: 'C:\Program Files\nodejs\node.exe'
-#    nodejs_paths: 'C:\node_modules'

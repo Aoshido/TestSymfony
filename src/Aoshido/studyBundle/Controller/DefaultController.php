@@ -4,9 +4,7 @@ namespace Aoshido\studyBundle\Controller;
 
 use Aoshido\studyBundle\Entity\Choice;
 use Aoshido\studyBundle\Entity\Pregunta;
-
 use Aoshido\studyBundle\form\PreguntaType;
-
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,17 +32,17 @@ class DefaultController extends Controller {
         $cant = count($preguntas);
 
         $pregunta = new Pregunta();
-        //$form = $this->createFormPregunta($pregunta);
+        $choice = new Choice();
 
-        $form = $this->createForm(new PreguntaType(), $pregunta, array(
-            'action' => $this->generateUrl('preguntas_ABM'),
-            'method' => 'POST',
-        ));
+        $pregunta->addChoice($choice);
+        
+        $form = $this->createForm(new PreguntaType(), $pregunta);
 
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $pregunta->setActivo(TRUE);
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($pregunta);
             $em->flush();

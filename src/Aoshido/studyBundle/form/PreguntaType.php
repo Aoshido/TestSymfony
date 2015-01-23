@@ -10,13 +10,36 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class PreguntaType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $builder->add('contenido');
-        $builder->add('vof');
-        $builder->add('respuesta');
+        $builder->add('contenido', 'text', array(
+            'label' => 'Pregunta:'
+        ));
+
+        $builder->add('respuesta', 'text', array(
+            'label' => 'Respuesta'
+        ));
+        
+        //$builder->add('Tema',new TemaType());
+
+        $builder->add('activo', 'choice', array(
+            'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
+            'required' => true,
+            'multiple' => false,
+            'expanded' => true,
+        ));
+
+        $builder->add('vof', 'choice', array(
+            'choices' => array(TRUE => 'Verdadero', FALSE => 'Falso'),
+            'required' => true,
+            'multiple' => false,
+            'expanded' => true,
+        ));
 
         $builder->add('choices', 'collection', array(
             'type' => new ChoiceType(),
-            'allow_add' => true,
+        ));
+
+        $builder->add('save', 'submit', array(
+            'label' => 'Agregar',
         ));
     }
 
